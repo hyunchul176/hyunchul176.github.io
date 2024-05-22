@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://hyunchul176.github.io/sitemap.xml
+Sitemap: hyunchul176.github.io/sitemap.xml
