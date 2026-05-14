@@ -1,0 +1,26 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Build outputs
+dist/
+node_modules/
+
+# Source photo folders (raw, big). Processed copies live under assets/news/
+Images/
+
+# Reference files — do not publish
+Curriculum Vitae_Sujin Lee_*.pdf
+
+# bkit working state
+.bkit/
+
+# Local working files (keep cv-source.html if you want; remove if private)
+# cv-source.html
+# *.docx

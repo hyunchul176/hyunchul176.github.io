@@ -1,0 +1,669 @@
+/* =========================================================
+   Hyunchul Park — personal site
+   Traditional academic style (à la Jon Barron / al-folio)
+   No gradients, no cards, no chips. Just text.
+   ========================================================= */
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+               Helvetica, Arial, "Apple SD Gothic Neo", "Noto Sans KR",
+               "Malgun Gothic", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #222;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* { box-sizing: border-box; }
+
+a {
+  color: #004EA2;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; color: #003478; }
+a:visited { color: #004EA2; }
+
+img { max-width: 100%; display: block; }
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+  line-height: 1.25;
+  color: #111;
+  margin: 0 0 .5em;
+}
+h1 { font-size: 1.7rem; font-weight: 700; }
+h2 {
+  font-size: 1.15rem;
+  margin: 2.2em 0 .8em;
+  padding-bottom: .25em;
+  border-bottom: 2px solid #004EA2;
+  letter-spacing: .01em;
+}
+h3 { font-size: 1rem; margin: 1.4em 0 .4em; color: #004EA2; }
+
+p { margin: 0 0 .9em; }
+
+ul, ol { margin: 0 0 .9em; padding-left: 1.4em; }
+li { margin: .15em 0; }
+
+hr {
+  border: 0;
+  border-top: 1px solid #e5e5e5;
+  margin: 2em 0;
+}
+
+em { color: #444; }
+
+/* ---------- Layout ---------- */
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Top nav ---------- */
+.topnav {
+  padding: 18px 0 0;
+  font-size: .95rem;
+}
+.topnav .nav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  align-items: baseline;
+  justify-content: flex-end;
+}
+.topnav a {
+  color: #444;
+  padding: 2px 0;
+}
+.topnav a:hover { color: #004EA2; text-decoration: underline; }
+.topnav a.active { color: #111; font-weight: 600; }
+
+/* ---------- Header (photo + bio) ---------- */
+.profile {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
+  align-items: start;
+  margin: 28px 0 8px;
+}
+.profile-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #e8eff8;
+  border: 2px solid #004EA2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #004EA2;
+  overflow: hidden;
+}
+.profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+.profile-name { margin: 0 0 .3em; }
+.profile-affil { color: #555; margin: 0 0 .8em; font-size: 1rem; }
+.profile-affil a { color: #004EA2; }
+.profile-bio { font-size: 1rem; color: #333; }
+.profile-bio p:last-child { margin-bottom: 0; }
+.profile-links {
+  margin-top: .8em;
+  font-size: .95rem;
+  color: #555;
+}
+.profile-links a { margin-right: 14px; }
+.profile-links a:last-child { margin-right: 0; }
+
+@media (max-width: 600px) {
+  .profile { grid-template-columns: 1fr; gap: 16px; }
+  .profile-photo { width: 140px; height: 140px; }
+}
+
+/* ---------- Main content blocks ---------- */
+main { padding-bottom: 60px; }
+
+.section { margin-top: 8px; }
+
+.note { color: #666; font-size: .92rem; }
+.muted { color: #888; }
+.footnote {
+  color: #777;
+  font-size: .88rem;
+  font-style: italic;
+  margin-top: .4em;
+}
+
+/* ---------- News list (simple, dated) ---------- */
+.news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: .97rem;
+}
+.news-list li {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.news-list li:last-child { border-bottom: none; }
+.news-list .news-date {
+  color: #777;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.news-list .news-text { color: #333; }
+.news-list .news-text a { color: #004EA2; }
+
+@media (max-width: 600px) {
+  .news-list li { grid-template-columns: 1fr; gap: 2px; }
+  .news-list .news-date { font-size: .88rem; }
+}
+
+/* news figure (optional image attached to a news entry) */
+.news-figure {
+  margin: 8px 0 4px;
+  max-width: 480px;
+}
+.news-figure img {
+  width: 100%;
+  height: auto;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+}
+
+/* ---------- Carousel (multi-image news entry) ---------- */
+.carousel {
+  position: relative;
+  margin: 10px 0 4px;
+  max-width: 540px;
+  user-select: none;
+}
+.carousel-stage {
+  position: relative;
+  background: #f6f6f6;
+  border: 1px solid #e5e5e5;
+  border-radius: 2px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+.carousel-stage img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .25s ease;
+}
+.carousel-stage img.active { opacity: 1; }
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, .9);
+  border: 1px solid #ddd;
+  color: #333;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font: 600 18px/1 system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  opacity: 0;
+  transition: opacity .15s, background .15s;
+}
+.carousel-btn:hover { background: #fff; }
+.carousel:hover .carousel-btn,
+.carousel:focus-within .carousel-btn { opacity: 1; }
+.carousel-btn.prev { left: 8px; }
+.carousel-btn.next { right: 8px; }
+.carousel-btn:focus-visible { opacity: 1; outline: 2px solid #004EA2; outline-offset: 2px; }
+
+.carousel-counter {
+  font-size: .82rem;
+  color: #888;
+  margin-top: 6px;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 600px) {
+  .carousel-btn { opacity: 1; } /* always show on touch devices */
+}
+
+/* ---------- Publications ---------- */
+.pub {
+  margin: 14px 0 18px;
+  padding-left: 14px;
+  border-left: 3px solid #d4dbe6;
+}
+.pub-title { font-weight: 600; color: #111; margin: 0 0 .2em; }
+.pub-authors { color: #444; font-size: .95rem; margin: 0 0 .15em; }
+.pub-authors .me { font-weight: 700; }
+.pub-venue { color: #666; font-size: .92rem; font-style: italic; margin: 0 0 .25em; }
+.pub-links { font-size: .9rem; }
+.pub-links a {
+  margin-right: 12px;
+  color: #004EA2;
+}
+
+/* ---------- CV-style entry list ---------- */
+.entries {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: .97rem;
+}
+.entries > li {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
+  padding: 6px 0;
+}
+.entries .e-date {
+  color: #777;
+  font-variant-numeric: tabular-nums;
+}
+.entries .e-title { color: #222; }
+.entries .e-meta { color: #666; font-size: .92rem; }
+
+@media (max-width: 600px) {
+  .entries > li { grid-template-columns: 1fr; gap: 2px; }
+  .entries .e-date { font-size: .88rem; }
+}
+
+/* ---------- Research interest blocks (homepage) ---------- */
+.interest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 14px 0 4px;
+}
+.interest-card {
+  border: 1px solid #ececec;
+  border-left: 3px solid #004EA2;
+  padding: 14px 16px;
+  border-radius: 0 4px 4px 0;
+  background: #fff;
+}
+.interest-card h3 {
+  font-size: .98rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: #004EA2;
+  line-height: 1.3;
+  min-height: calc(1.3em * 2);
+}
+.interest-card p {
+  font-size: .9rem;
+  color: #555;
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* When .interest-card is itself a link (overview cards) */
+a.interest-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: border-left-color .15s, background .15s;
+}
+a.interest-card:hover {
+  border-left-color: #003478;
+  background: #f4f8fc;
+  text-decoration: none;
+}
+a.interest-card:hover h3 { text-decoration: underline; }
+a.interest-card h3 { color: #004EA2; }
+
+/* ---- Per-topic colors (AV = blue, Humanoid = indigo, Human = teal) ---- */
+/* AV: KAIST blue */
+.interest-card.t-av { border-left-color: #004EA2; }
+.interest-card.t-av h3 { color: #004EA2; }
+a.interest-card.t-av:hover { border-left-color: #003478; background: #f4f8fc; }
+.diagram-flow.t-av .df-box.df-emph { border-color: #004EA2; }
+.diagram-flow.t-av .df-box.df-emph strong { color: #004EA2; }
+.diagram-flow.t-av .df-arrow { color: #004EA2; }
+
+/* Humanoid: indigo */
+.interest-card.t-humanoid { border-left-color: #6b46c1; }
+.interest-card.t-humanoid h3 { color: #6b46c1; }
+a.interest-card.t-humanoid:hover { border-left-color: #553c9a; background: #f5f1fb; }
+.diagram-flow.t-humanoid .df-box.df-emph { border-color: #6b46c1; }
+.diagram-flow.t-humanoid .df-box.df-emph strong { color: #6b46c1; }
+.diagram-flow.t-humanoid .df-arrow { color: #6b46c1; }
+
+/* Human factors: teal */
+.interest-card.t-human { border-left-color: #0d9488; }
+.interest-card.t-human h3 { color: #0d9488; }
+a.interest-card.t-human:hover { border-left-color: #0f766e; background: #ecfdf6; }
+.diagram-flow.t-human .df-box.df-emph { border-color: #0d9488; }
+.diagram-flow.t-human .df-box.df-emph strong { color: #0d9488; }
+.diagram-flow.t-human .df-arrow { color: #0d9488; }
+
+/* ---------- Research section diagram (3-box flow) ---------- */
+.diagram-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: stretch;
+  gap: 4px;
+  margin: 14px 0 22px;
+  padding: 18px 16px;
+  background: #fafbfd;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+}
+.df-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 12px 10px;
+  border: 1px solid #d4dbe6;
+  border-radius: 4px;
+  background: #fff;
+}
+.df-box strong {
+  font-size: .92rem;
+  color: #111;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.df-box small {
+  font-size: .78rem;
+  color: #777;
+  margin-top: 4px;
+  line-height: 1.3;
+}
+.df-box.df-emph {
+  border-color: #004EA2;
+  border-width: 2px;
+  background: #fff;
+}
+.df-box.df-emph strong { color: #004EA2; }
+.df-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #004EA2;
+  font-weight: 300;
+  padding: 0 4px;
+}
+@media (max-width: 600px) {
+  .diagram-flow {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .df-arrow { transform: rotate(90deg); padding: 2px; }
+}
+
+/* ---------- Research map (Master's -> Ph.D. transition) ---------- */
+.research-map {
+  display: grid;
+  grid-template-columns: 1fr 40px 1fr;
+  gap: 16px;
+  align-items: stretch;
+  margin: 22px 0 36px;
+  padding: 24px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  background: #fafbfd;
+}
+.rmap-card {
+  text-align: center;
+  padding: 4px 6px;
+}
+.rmap-phase {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #004EA2;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+.rmap-phase.alt { background: #003478; }
+.rmap-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.35;
+  margin: 0 0 6px;
+}
+.rmap-keywords {
+  font-size: .85rem;
+  color: #555;
+  line-height: 1.4;
+}
+.rmap-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: #004EA2;
+  font-weight: 300;
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .research-map {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .rmap-arrow { transform: rotate(90deg); padding: 4px 0; }
+}
+
+/* ---------- Academic journey (horizontal milestone timeline) ---------- */
+.journey {
+  position: relative;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 8px;
+  margin: 26px 0 32px;
+  padding: 24px 18px 14px;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  background: #fafbfd;
+}
+.journey::before {
+  content: "";
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  top: 36px;
+  height: 2px;
+  background: #d4dbe6;
+  z-index: 0;
+}
+.journey-item {
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+.journey-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #004EA2;
+  margin: 0 auto 10px;
+  border: 3px solid #fafbfd;
+  box-shadow: 0 0 0 1px #004EA2;
+}
+.journey-date {
+  font-size: .78rem;
+  color: #666;
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 2px;
+}
+.journey-label {
+  font-size: .82rem;
+  font-weight: 600;
+  color: #222;
+  line-height: 1.3;
+}
+
+@media (max-width: 720px) {
+  .journey {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    gap: 14px;
+    padding: 18px;
+  }
+  .journey::before {
+    left: 28px; right: auto; top: 32px;
+    width: 2px; height: calc(100% - 50px);
+  }
+  .journey-item { text-align: left; padding-left: 30px; }
+  .journey-dot { position: absolute; left: 14px; top: 2px; margin: 0; }
+}
+
+/* ---------- News page: year nav + two-column layout ---------- */
+.year-nav {
+  margin: 18px 0 6px;
+  padding: 10px 0;
+  font-size: .95rem;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  justify-content: center;
+}
+.year-nav a {
+  color: #444;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.year-nav a:hover { background: #f0f4fa; color: #004EA2; text-decoration: none; }
+
+/* Slightly wider container on the news page to fit 2 columns */
+.news-page .container { max-width: 1000px; }
+
+/* News list in 2 columns (card-style cells) */
+.news-list--cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 28px;
+  font-size: .96rem;
+}
+.news-list--cols li {
+  display: block;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  padding: 14px 16px;
+  background: #fff;
+}
+.news-list--cols .news-date {
+  display: block;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 4px;
+}
+.news-list--cols .news-text { display: block; color: #333; }
+
+/* Separate first <strong> (entry title) from the body paragraph.
+   min-height reserves space for 2 lines so 1-line and 2-line titles
+   place their carousels at the same vertical position across columns. */
+.news-list--cols .news-text > strong:first-child {
+  display: block;
+  font-size: 1.02rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: #111;
+  margin: 0 0 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ececec;
+  min-height: calc(1.3em * 2 + 4px);
+}
+
+.news-list--cols .carousel { max-width: 100%; }
+
+@media (max-width: 720px) {
+  .news-list--cols { grid-template-columns: 1fr; }
+}
+
+/* Anchor offset so sticky-ish nav doesn't cover the heading when jumping */
+.news-page h2[id] { scroll-margin-top: 16px; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  margin-top: 50px;
+  padding-top: 18px;
+  border-top: 1px solid #e5e5e5;
+  font-size: .85rem;
+  color: #888;
+  text-align: center;
+}
+.site-footer a { color: #888; }
+.site-footer a:hover { color: #004EA2; }
+
+/* ---------- CV page: prominent PDF download button ---------- */
+.cv-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 8px 0 0;
+  padding: 10px 18px;
+  background: #004EA2;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: .95rem;
+  transition: background .15s;
+}
+.cv-download:hover {
+  background: #003478;
+  color: #fff;
+  text-decoration: none;
+}
+.cv-download::before { content: "📄"; }
+
+/* ---------- Print (PDF) ---------- */
+@media print {
+  .no-print { display: none !important; }
+  body { font-size: 11pt; color: #000; }
+  .container { max-width: 100%; padding: 0; }
+  a { color: #000; text-decoration: none; }
+  /* show link targets after text on print */
+  a[href^="http"]::after {
+    content: " [" attr(href) "]";
+    font-size: 9pt;
+    color: #555;
+    word-break: break-all;
+  }
+  /* but not the print-trigger / nav / footer chrome */
+  .topnav a::after,
+  .profile-links a::after,
+  .site-footer a::after { content: ""; }
+  h2 {
+    border-bottom: 1px solid #888;
+    page-break-after: avoid;
+  }
+  .entries > li,
+  ol > li,
+  ul.news-list li {
+    page-break-inside: avoid;
+  }
+  img { max-width: 100%; }
+}
