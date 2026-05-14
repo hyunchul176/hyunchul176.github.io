@@ -3,7 +3,7 @@
 // =========================================================
 
 (function () {
-  // Highlight current page in topnav
+  // ---------- Topnav active link ----------
   const path = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".topnav a").forEach((a) => {
     const href = a.getAttribute("href");
@@ -12,12 +12,73 @@
     }
   });
 
-  // Footer year
+  // ---------- Footer year ----------
   const y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
-  // Build carousels from data attributes:
-  //   <div class="carousel" data-slug="2025-01-trb-award" data-count="6"></div>
+  // ---------- Last updated ----------
+  const lu = document.getElementById("last-updated");
+  if (lu) {
+    const d = new Date(document.lastModified);
+    lu.textContent = "Last updated: " +
+      d.toLocaleDateString("en-US", { year: "numeric", month: "short" });
+  }
+
+  // ---------- Email click-to-copy ----------
+  document.querySelectorAll(".copy-email").forEach((el) => {
+    const email = el.dataset.email || el.textContent.trim();
+    el.title = "Click to copy";
+    el.addEventListener("click", async (e) => {
+      e.preventDefault();
+      try {
+        await navigator.clipboard.writeText(email);
+        const original = el.textContent;
+        el.textContent = "Copied!";
+        el.classList.add("copied");
+        setTimeout(() => {
+          el.textContent = original;
+          el.classList.remove("copied");
+        }, 1500);
+      } catch (err) {
+        // Fallback: open the user's mail client
+        window.location.href = "mailto:" + email;
+      }
+    });
+  });
+
+  // ---------- Recent news preview (auto-sync from news.html) ----------
+  const newsTarget = document.getElementById("news-preview");
+  if (newsTarget) {
+    fetch("news.html")
+      .then((r) => { if (!r.ok) throw new Error("fetch"); return r.text(); })
+      .then((html) => {
+        const doc = new DOMParser().parseFromString(html, "text/html");
+        const items = doc.querySelectorAll(".news-list--cols li");
+        if (items.length === 0) throw new Error("empty");
+        newsTarget.innerHTML = "";
+        Array.from(items).slice(0, 6).forEach((li) => {
+          const date = (li.querySelector(".news-date")?.textContent || "").trim();
+          let title = (li.querySelector(".news-text > strong:first-child")?.textContent || "").trim();
+          title = title.replace(/\.$/, "");
+          const newLi = document.createElement("li");
+          const dSpan = document.createElement("span");
+          dSpan.className = "news-date";
+          dSpan.textContent = date;
+          const tSpan = document.createElement("span");
+          tSpan.className = "news-text";
+          tSpan.textContent = title;
+          newLi.appendChild(dSpan);
+          newLi.appendChild(tSpan);
+          newsTarget.appendChild(newLi);
+        });
+      })
+      .catch(() => {
+        newsTarget.innerHTML =
+          '<li class="muted">See the <a href="news.html">News page</a> for recent updates.</li>';
+      });
+  }
+
+  // ---------- Carousels ----------
   document.querySelectorAll(".carousel").forEach((c) => {
     const slug = c.dataset.slug;
     const count = parseInt(c.dataset.count, 10) || 0;
@@ -68,7 +129,6 @@
       prev.addEventListener("click", () => show(i - 1));
       next.addEventListener("click", () => show(i + 1));
 
-      // Keyboard support when carousel is focused
       c.tabIndex = 0;
       c.addEventListener("keydown", (e) => {
         if (e.key === "ArrowLeft") { e.preventDefault(); show(i - 1); }
