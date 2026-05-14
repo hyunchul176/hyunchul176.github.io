@@ -647,7 +647,9 @@ a.interest-card.t-human:hover { border-left-color: #0f766e; background: #ecfdf6;
 .site-footer a:hover { color: #004EA2; }
 
 /* ---------- CV page: prominent PDF download button ---------- */
-.cv-download {
+.cv-download,
+.cv-download:visited,
+.cv-download:link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
