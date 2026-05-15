@@ -310,10 +310,70 @@ main { padding-bottom: 60px; }
 
 /* ---------- Publications ---------- */
 .pub {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 16px;
   margin: 14px 0 18px;
   padding-left: 14px;
   border-left: 3px solid #d4dbe6;
+  align-items: start;
 }
+.pub-fig {
+  width: 130px;
+  height: 95px;
+  background: #fafbfd;
+  border: 1px solid #ececec;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-size: .72rem;
+  color: #999;
+  text-align: center;
+  padding: 4px;
+  font-style: italic;
+}
+.pub-fig img { width: 100%; height: 100%; object-fit: cover; }
+.pub-body { min-width: 0; }
+@media (max-width: 600px) {
+  .pub { grid-template-columns: 1fr; }
+  .pub-fig { width: 100%; height: 120px; }
+}
+
+/* ---------- Per-theme concept figure ---------- */
+.theme-fig {
+  margin: 14px 0 22px;
+  max-width: 560px;
+  border: 1px solid #ececec;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fafbfd;
+}
+.theme-fig img,
+.theme-fig .fig-placeholder {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+.theme-fig .fig-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-style: italic;
+  font-size: .9rem;
+}
+.theme-fig figcaption {
+  padding: 10px 14px;
+  font-size: .85rem;
+  color: #666;
+  font-style: italic;
+  border-top: 1px solid #ececec;
+  background: #fff;
+}
+
 .pub-title { font-weight: 600; color: #111; margin: 0 0 .2em; }
 .pub-authors { color: #444; font-size: .95rem; margin: 0 0 .15em; }
 .pub-authors .me { font-weight: 700; }
