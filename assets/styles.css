@@ -382,6 +382,43 @@ a.interest-card.t-human:hover { border-left-color: #0f766e; background: #ecfdf6;
 .diagram-flow.t-human .df-box.df-emph strong { color: #0d9488; }
 .diagram-flow.t-human .df-arrow { color: #0d9488; }
 
+/* ---------- Research topic wrapper (colored card per theme) ---------- */
+.topic {
+  margin: 32px 0;
+  padding: 22px 26px;
+  border-left: 4px solid #ccc;
+  border-radius: 0 6px 6px 0;
+  background: #fafbfd;
+}
+.topic > h2 {
+  margin-top: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.topic > h3 { margin-top: 1.6em; }
+.topic.t-av {
+  border-left-color: #004EA2;
+  background: #f5f9fd;
+}
+.topic.t-av > h2 { color: #004EA2; }
+.topic.t-humanoid {
+  border-left-color: #6b46c1;
+  background: #f7f4fc;
+}
+.topic.t-humanoid > h2 { color: #6b46c1; }
+.topic.t-human {
+  border-left-color: #0d9488;
+  background: #f0faf8;
+}
+.topic.t-human > h2 { color: #0d9488; }
+
+/* Diagrams inside topic cards: lighten the box bg so it sits on the tint */
+.topic .diagram-flow { background: #fff; }
+
+@media (max-width: 600px) {
+  .topic { padding: 18px 18px; }
+}
+
 /* ---------- Research section diagram (3-box flow) ---------- */
 .diagram-flow {
   display: grid;
