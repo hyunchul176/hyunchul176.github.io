@@ -149,6 +149,43 @@ em { color: #444; }
 .profile-links a { margin-right: 14px; }
 .profile-links a:last-child { margin-right: 0; }
 
+/* Icon link buttons (used in profile-links) */
+.icon-links {
+  display: inline-flex;
+  gap: 8px;
+  margin-left: 12px;
+  vertical-align: middle;
+}
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #d4dbe6;
+  border-radius: 50%;
+  color: #555;
+  background: #fff;
+  text-decoration: none;
+  transition: background .15s, color .15s, border-color .15s, transform .15s;
+}
+.icon-link:hover,
+.icon-link:focus-visible {
+  background: #004EA2;
+  color: #fff;
+  border-color: #004EA2;
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+.icon-link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  display: block;
+}
+.icon-link:visited { color: #555; }
+.icon-link:visited:hover { color: #fff; }
+
 @media (max-width: 600px) {
   .profile { grid-template-columns: 1fr; gap: 16px; }
   .profile-photo { width: 140px; height: 140px; }
