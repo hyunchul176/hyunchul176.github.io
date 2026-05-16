@@ -716,7 +716,7 @@ a.interest-card.t-human:hover { border-left-color: #0f766e; background: #ecfdf6;
 .project-card-thumb {
   width: 100px;
   height: 100px;
-  background: #fafbfd;
+  background: #fff;
   border: 1px solid #e5e5e5;
   border-radius: 8px;
   display: flex;
