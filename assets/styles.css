@@ -343,7 +343,7 @@ main { padding-bottom: 60px; }
 
 /* ---------- Per-theme concept figure ---------- */
 .theme-fig {
-  margin: 14px 0 22px;
+  margin: 14px auto 22px;
   max-width: 560px;
   border: 1px solid #ececec;
   border-radius: 6px;
