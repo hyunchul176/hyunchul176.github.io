@@ -334,11 +334,14 @@ main { padding-bottom: 60px; }
   padding: 4px;
   font-style: italic;
 }
-.pub-fig img { width: 100%; height: 100%; object-fit: contain; }
+.pub-fig img { width: 100%; height: 100%; object-fit: contain; transition: transform .15s; }
 
 /* Larger figure variant for a specific publication */
 .pub.fig-lg { grid-template-columns: 220px 1fr; }
 .pub.fig-lg .pub-fig { width: 220px; height: 160px; }
+
+/* Zoom the image inside the holder (holder size unchanged) */
+.pub.fig-zoom .pub-fig img { transform: scale(1.35); }
 .pub-body { min-width: 0; }
 @media (max-width: 600px) {
   .pub { grid-template-columns: 1fr; }
