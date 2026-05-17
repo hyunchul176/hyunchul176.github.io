@@ -741,7 +741,7 @@ a.interest-card.t-human:hover { border-left-color: #0f766e; background: #ecfdf6;
   object-fit: contain;
 }
 /* Per-logo balance: MOLIT (wide) larger, NRF (square) smaller */
-.project-card-thumb img[src*="molit"] { transform: scale(1.15); }
+.project-card-thumb img[src*="molit"] { transform: scale(1.15); transform-origin: right center; }
 .project-card-thumb img[src*="nrf"]   { transform: scale(0.8); }
 .project-card-body { display: flex; flex-direction: column; min-width: 0; }
 .project-card h3 {
