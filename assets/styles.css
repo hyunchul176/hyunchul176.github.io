@@ -321,7 +321,7 @@ main { padding-bottom: 60px; }
 .pub-fig {
   width: 130px;
   height: 95px;
-  background: #fafbfd;
+  background: #fff;
   border: 1px solid #ececec;
   border-radius: 4px;
   display: flex;
@@ -348,7 +348,7 @@ main { padding-bottom: 60px; }
   border: 1px solid #ececec;
   border-radius: 6px;
   overflow: hidden;
-  background: #fafbfd;
+  background: #fff;
 }
 .theme-fig img,
 .theme-fig .fig-placeholder {
