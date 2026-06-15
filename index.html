@@ -6,7 +6,7 @@
   <title>Hyunchul Park</title>
   <meta name="description" content="Hyunchul Park — Ph.D. student at KAIST CCS Graduate School of Mobility. Research on traffic safety, micromobility, and VR-based driver/pedestrian behavior." />
   <meta name="author" content="Hyunchul Park" />
-  <link rel="stylesheet" href="assets/styles.css?v=2" />
+  <link rel="stylesheet" href="assets/styles.css?v=3" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -61,11 +61,18 @@
 
   <nav class="topnav">
     <div class="nav-inner">
-      <a href="index.html">Home</a>
-      <a href="research.html">Research</a>
-      <a href="projects.html">Projects</a>
-      <a href="cv.html">CV</a>
-      <a href="news.html">News</a>
+      <a href="index.html"><span data-lang="en">Home</span><span data-lang="ko">홈</span></a>
+      <a href="research.html"><span data-lang="en">Research</span><span data-lang="ko">연구</span></a>
+      <a href="projects.html"><span data-lang="en">Projects</span><span data-lang="ko">프로젝트</span></a>
+      <a href="cv.html"><span data-lang="en">CV</span><span data-lang="ko">이력서</span></a>
+      <a href="news.html"><span data-lang="en">News</span><span data-lang="ko">소식</span></a>
+      <span class="nav-controls">
+        <button id="lang-toggle" class="nav-btn" type="button" aria-label="Switch language">한국어</button>
+        <button id="theme-toggle" class="nav-btn" type="button" aria-label="Toggle dark mode">
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </button>
+      </span>
     </div>
   </nav>
 
@@ -74,17 +81,26 @@
     <div>
       <h1 class="profile-name">Hyunchul Park</h1>
       <p class="profile-affil">
-        Ph.D. student,
-        <a href="https://mo.kaist.ac.kr/" target="_blank" rel="noopener">Cho Chun Shik Graduate School of Mobility</a>,
-        KAIST.
+        <span data-lang="en">Ph.D. student,
+          <a href="https://mo.kaist.ac.kr/" target="_blank" rel="noopener">Cho Chun Shik Graduate School of Mobility</a>,
+          KAIST.</span>
+        <span data-lang="ko">박사과정,
+          <a href="https://mo.kaist.ac.kr/" target="_blank" rel="noopener">조천식 모빌리티 대학원</a>,
+          KAIST</span>
       </p>
       <div class="profile-bio">
-        <p>
+        <p data-lang="en">
           I am a Ph.D. student at KAIST advised by Prof. Inhi Kim in the
           <a href="https://inhi.kim/" target="_blank" rel="noopener">TUPA Lab</a>.
           I work on autonomous-vehicle safety evaluation, V2X-aware
-          humanoid drivers, and human factors in traffic safety, studied
-          with immersive VR experiments.
+          humanoid drivers, and human-centric traffic safety research,
+          studied with immersive VR experiments.
+        </p>
+        <p data-lang="ko">
+          저는 KAIST 조천식 모빌리티 대학원에서 김인희 교수님의 지도 아래
+          <a href="https://inhi.kim/" target="_blank" rel="noopener">TUPA 연구실</a>에 소속된 박사과정 학생입니다.
+          자율주행차량 안전성 평가, V2X 기반 휴머노이드 운전자, 그리고 몰입형
+          VR 실험을 활용한 인간 중심 교통안전 연구를 수행하고 있습니다.
         </p>
       </div>
       <p class="profile-links">
@@ -107,31 +123,31 @@
   <main>
 
     <section class="section">
-      <h2>Research interests</h2>
+      <h2><span data-lang="en">Research interests</span><span data-lang="ko">연구 분야</span></h2>
       <div class="interest-grid">
         <div class="interest-card t-av">
-          <h3>Autonomous vehicle safety evaluation</h3>
-          <p>Simulation-based stress testing, including RL-trained adversarial agents.</p>
+          <h3><span data-lang="en">Autonomous vehicle safety evaluation</span><span data-lang="ko">자율주행차량 안전성 평가</span></h3>
+          <p><span data-lang="en">Simulation-based stress testing, including RL-trained adversarial agents.</span><span data-lang="ko">강화학습 기반 적대적 에이전트를 활용한 시뮬레이션 안전성 평가.</span></p>
         </div>
         <div class="interest-card t-humanoid">
-          <h3>V2X-aware humanoid drivers</h3>
-          <p>Humanoid robots that drive using V2X to participate as new traffic agents.</p>
+          <h3><span data-lang="en">V2X-aware humanoid drivers</span><span data-lang="ko">V2X 기반 휴머노이드 운전자</span></h3>
+          <p><span data-lang="en">Humanoid robots that drive using V2X to participate as new traffic agents.</span><span data-lang="ko">V2X 정보를 받아 운전하는 휴머노이드 로봇, 새로운 교통 에이전트로 참여.</span></p>
         </div>
         <div class="interest-card t-human">
-          <h3>Human factors in traffic safety</h3>
-          <p>VR experiments on how drivers and pedestrians decide in safety-critical settings.</p>
+          <h3><span data-lang="en">Human-centric traffic safety research</span><span data-lang="ko">인간 중심 교통안전 연구</span></h3>
+          <p><span data-lang="en">VR experiments on how drivers and pedestrians decide in safety-critical settings.</span><span data-lang="ko">운전자와 보행자가 안전 위급 상황에서 어떻게 판단하는지 VR 실험으로 측정.</span></p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>Recent news</h2>
+      <h2><span data-lang="en">Recent news</span><span data-lang="ko">최근 소식</span></h2>
       <ul class="news-list" id="news-preview"></ul>
-      <p class="note" style="margin-top:.6em;"><a href="news.html">See all news →</a></p>
+      <p class="note" style="margin-top:.6em;"><a href="news.html"><span data-lang="en">See all news →</span><span data-lang="ko">전체 소식 보기 →</span></a></p>
     </section>
 
     <section class="section">
-      <h2>Selected publications</h2>
+      <h2><span data-lang="en">Selected publications</span><span data-lang="ko">주요 논문</span></h2>
 
       <div class="pub fig-lg fig-zoom">
         <div class="pub-fig">
@@ -176,13 +192,13 @@
       </div>
 
       <p class="note" style="margin-top:.6em;">
-        <sup>*</sup> Corresponding author. ·
-        <a href="cv.html">Full publication list →</a>
+        <sup>*</sup> <span data-lang="en">Corresponding author.</span><span data-lang="ko">교신저자.</span> ·
+        <a href="cv.html"><span data-lang="en">Full publication list →</span><span data-lang="ko">전체 논문 목록 →</span></a>
       </p>
     </section>
 
     <section class="section">
-      <h2>Selected awards</h2>
+      <h2><span data-lang="en">Selected awards</span><span data-lang="ko">주요 수상</span></h2>
       <ul class="news-list">
         <li>
           <span class="news-date">Jan 2025</span>
@@ -201,15 +217,15 @@
           <span class="news-text">KAIST Graduate Student Outstanding Paper Award</span>
         </li>
       </ul>
-      <p class="note" style="margin-top:.6em;"><a href="cv.html">Full list in CV →</a></p>
+      <p class="note" style="margin-top:.6em;"><a href="cv.html"><span data-lang="en">Full list in CV →</span><span data-lang="ko">CV에서 전체 보기 →</span></a></p>
     </section>
 
     <section class="section">
-      <h2>Contact</h2>
+      <h2><span data-lang="en">Contact</span><span data-lang="ko">연락처</span></h2>
       <p>
-        <strong>Email:</strong> <span class="copy-email">hyunchul.park@kaist.ac.kr</span><br>
-        <strong>Office:</strong> Faculty Wing F341, KAIST<br>
-        <strong>Address:</strong> Munji-ro, Yuseong-gu, Daejeon 34051, Republic of Korea
+        <strong><span data-lang="en">Email:</span><span data-lang="ko">이메일:</span></strong> <span class="copy-email">hyunchul.park@kaist.ac.kr</span><br>
+        <strong><span data-lang="en">Office:</span><span data-lang="ko">사무실:</span></strong> <span data-lang="en">Faculty Wing F341, KAIST</span><span data-lang="ko">KAIST 교수동 F341</span><br>
+        <strong><span data-lang="en">Address:</span><span data-lang="ko">주소:</span></strong> <span data-lang="en">Munji-ro, Yuseong-gu, Daejeon 34051, Republic of Korea</span><span data-lang="ko">대전광역시 유성구 문지로 34051</span>
       </p>
     </section>
 
@@ -222,6 +238,6 @@
 
 </div>
 
-<script src="assets/script.js?v=2"></script>
+<script src="assets/script.js?v=3"></script>
 </body>
 </html>

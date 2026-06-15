@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Research — Hyunchul Park</title>
   <meta name="description" content="Research topics: RL-based adversarial agents for AV safety, humanoid drivers with world models and V2X, and human factors in traffic safety." />
-  <link rel="stylesheet" href="assets/styles.css?v=2" />
+  <link rel="stylesheet" href="assets/styles.css?v=3" />
 </head>
 <body>
 
@@ -13,40 +13,51 @@
 
   <nav class="topnav">
     <div class="nav-inner">
-      <a href="index.html">Home</a>
-      <a href="research.html">Research</a>
-      <a href="projects.html">Projects</a>
-      <a href="cv.html">CV</a>
-      <a href="news.html">News</a>
+      <a href="index.html"><span data-lang="en">Home</span><span data-lang="ko">홈</span></a>
+      <a href="research.html"><span data-lang="en">Research</span><span data-lang="ko">연구</span></a>
+      <a href="projects.html"><span data-lang="en">Projects</span><span data-lang="ko">프로젝트</span></a>
+      <a href="cv.html"><span data-lang="en">CV</span><span data-lang="ko">이력서</span></a>
+      <a href="news.html"><span data-lang="en">News</span><span data-lang="ko">소식</span></a>
+      <span class="nav-controls">
+        <button id="lang-toggle" class="nav-btn" type="button" aria-label="Switch language">한국어</button>
+        <button id="theme-toggle" class="nav-btn" type="button" aria-label="Toggle dark mode">
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+        </button>
+      </span>
     </div>
   </nav>
 
   <main>
-    <h1 style="margin-top:28px;">Research</h1>
-    <p>
+    <h1 style="margin-top:28px;"><span data-lang="en">Research</span><span data-lang="ko">연구</span></h1>
+    <p data-lang="en">
       My research sits at the intersection of traffic safety, human
       factors, and autonomous systems. It covers three topics:
+    </p>
+    <p data-lang="ko">
+      제 연구는 교통안전, 인간공학, 자율주행 시스템의 교차점에 자리합니다.
+      다음 세 가지 주제를 다룹니다:
     </p>
 
     <div class="interest-grid">
       <a class="interest-card t-av" href="#av-evaluation">
-        <h3>Autonomous vehicle safety evaluation</h3>
-        <p>Simulation-based stress testing, including RL-trained adversarial agents.</p>
+        <h3><span data-lang="en">Autonomous vehicle safety evaluation</span><span data-lang="ko">자율주행차량 안전성 평가</span></h3>
+        <p><span data-lang="en">Simulation-based stress testing, including RL-trained adversarial agents.</span><span data-lang="ko">강화학습 기반 적대적 에이전트를 활용한 시뮬레이션 안전성 평가.</span></p>
       </a>
       <a class="interest-card t-humanoid" href="#humanoid-v2x">
-        <h3>V2X-aware humanoid drivers</h3>
-        <p>Humanoid robots that drive using V2X to participate as new traffic agents.</p>
+        <h3><span data-lang="en">V2X-aware humanoid drivers</span><span data-lang="ko">V2X 기반 휴머노이드 운전자</span></h3>
+        <p><span data-lang="en">Humanoid robots that drive using V2X to participate as new traffic agents.</span><span data-lang="ko">V2X 정보를 받아 운전하는 휴머노이드 로봇, 새로운 교통 에이전트로 참여.</span></p>
       </a>
       <a class="interest-card t-human" href="#human-factors">
-        <h3>Human factors in traffic safety</h3>
-        <p>VR experiments on how drivers and pedestrians decide in safety-critical settings.</p>
+        <h3><span data-lang="en">Human-centric traffic safety research</span><span data-lang="ko">인간 중심 교통안전 연구</span></h3>
+        <p><span data-lang="en">VR experiments on how drivers and pedestrians decide in safety-critical settings.</span><span data-lang="ko">운전자와 보행자가 안전 위급 상황에서 어떻게 판단하는지 VR 실험으로 측정.</span></p>
       </a>
     </div>
 
     <section class="topic t-av">
-    <h2 id="av-evaluation">Autonomous vehicle safety evaluation</h2>
+    <h2 id="av-evaluation"><span data-lang="en">Autonomous vehicle safety evaluation</span><span data-lang="ko">자율주행차량 안전성 평가</span></h2>
 
-    <p>
+    <p data-lang="en">
       Most pedestrian and vehicle models used in AV simulation are
       conservative and rule-following. I develop RL-trained adversarial
       agents whose behavior is constrained to remain
@@ -54,10 +65,17 @@
       logic — yielding sharper, more informative safety evaluation than
       either purely random or purely worst-case scenarios.
     </p>
+    <p data-lang="ko">
+      자율주행차량 시뮬레이션에 사용되는 보행자·차량 모델은 대부분 보수적이고
+      규칙을 잘 따릅니다. 저는 강화학습으로 학습한 적대적 에이전트가
+      <em>행동적으로 현실적인</em> 범위 안에서 자율주행차량의 의사결정 로직을
+      적극적으로 압박하도록 만들어, 무작위 시나리오나 단순 최악 시나리오보다
+      더 날카롭고 유의미한 안전성 평가를 가능하게 합니다.
+    </p>
 
     <figure class="theme-fig">
       <img src="assets/figures/av-evaluation.png" alt="" onerror="this.outerHTML='&lt;div class=&quot;fig-placeholder&quot;&gt;Concept figure coming soon&lt;/div&gt;'">
-      <figcaption>Conceptual framework for behaviorally realistic AV safety evaluation.</figcaption>
+      <figcaption><span data-lang="en">Conceptual framework for behaviorally realistic AV safety evaluation.</span><span data-lang="ko">행동적으로 현실적인 자율주행 안전성 평가의 개념적 프레임워크.</span></figcaption>
     </figure>
 
     <div class="pub fig-lg">
@@ -74,9 +92,9 @@
     </section>
 
     <section class="topic t-humanoid">
-    <h2 id="humanoid-v2x">V2X-aware humanoid drivers</h2>
+    <h2 id="humanoid-v2x"><span data-lang="en">V2X-aware humanoid drivers</span><span data-lang="ko">V2X 기반 휴머노이드 운전자</span></h2>
 
-    <p>
+    <p data-lang="en">
       I am training humanoid robots to drive vehicles using world-model–
       based learning and V2X information feeds. Rather than treating an
       autonomous vehicle as a black box on the road, the motivating idea
@@ -84,35 +102,53 @@
       anticipate, and signal like a human driver — and then study how
       embodied driving changes the behavior of surrounding road users.
     </p>
+    <p data-lang="ko">
+      저는 월드모델 기반 학습과 V2X 정보 입력을 활용해 휴머노이드 로봇이
+      차량을 운전하도록 훈련하고 있습니다. 자율주행차량을 도로 위의
+      블랙박스로 다루는 대신, 사람 운전자처럼 인지·예측·신호를 보내는
+      휴머노이드 에이전트를 운전석에 두고, 이러한 체화된 운전이 주변 도로
+      이용자의 행동을 어떻게 바꾸는지 연구합니다.
+    </p>
 
     <figure class="theme-fig">
       <img src="assets/figures/humanoid-v2x.png" alt="" onerror="this.outerHTML='&lt;div class=&quot;fig-placeholder&quot;&gt;Concept figure coming soon&lt;/div&gt;'">
-      <figcaption>Conceptual framework for embodied autonomous driving.</figcaption>
+      <figcaption><span data-lang="en">Conceptual framework for embodied autonomous driving.</span><span data-lang="ko">체화된 자율주행의 개념적 프레임워크.</span></figcaption>
     </figure>
 
     </section>
 
     <section class="topic t-human">
-    <h2 id="human-factors">Human factors in traffic safety</h2>
+    <h2 id="human-factors"><span data-lang="en">Human-centric traffic safety research</span><span data-lang="ko">인간 중심 교통안전 연구</span></h2>
 
-    <p>
+    <p data-lang="en">
       A long-running line of work using immersive VR experiments to
       measure how drivers, pedestrians, and evacuees actually decide,
       attend, and move in safety-critical mobility situations.
     </p>
+    <p data-lang="ko">
+      운전자, 보행자, 대피자가 안전 위급 모빌리티 상황에서 실제로 어떻게
+      판단하고 주의를 기울이며 움직이는지를 몰입형 VR 실험으로 측정하는
+      장기적인 연구입니다.
+    </p>
 
     <figure class="theme-fig">
       <img src="assets/figures/human-factors.png" alt="" onerror="this.outerHTML='&lt;div class=&quot;fig-placeholder&quot;&gt;Concept figure coming soon&lt;/div&gt;'">
-      <figcaption>Human factors research using immersive VR experiments.</figcaption>
+      <figcaption><span data-lang="en">Human factors research using immersive VR experiments.</span><span data-lang="ko">몰입형 VR 실험을 활용한 인간공학 연구.</span></figcaption>
     </figure>
 
-    <h3>Micromobility safety and driver behavior</h3>
-    <p>
+    <h3><span data-lang="en">Micromobility safety and driver behavior</span><span data-lang="ko">마이크로모빌리티 안전과 운전자 행동</span></h3>
+    <p data-lang="en">
       Drivers share roads with bicycles and e-scooters in increasingly
       mixed traffic. I study how a driver's own prior riding experience
       shapes overtaking maneuvers, lateral distance, and risk-taking,
       using VR-based driving simulators that reproduce realistic urban
       roadways.
+    </p>
+    <p data-lang="ko">
+      운전자는 점점 혼재된 교통 환경에서 자전거·전동킥보드와 도로를
+      공유합니다. 저는 도시 도로를 사실적으로 재현하는 VR 기반 운전
+      시뮬레이터로 운전자의 사전 라이딩 경험이 추월 행동·횡방향 간격·
+      위험 감수 행동에 어떻게 영향을 미치는지 연구합니다.
     </p>
 
     <div class="pub fig-lg fig-zoom">
@@ -129,13 +165,19 @@
       </div>
     </div>
 
-    <h3>Pedestrian safety and ADAS</h3>
-    <p>
+    <h3><span data-lang="en">Pedestrian safety and ADAS</span><span data-lang="ko">보행자 안전과 ADAS</span></h3>
+    <p data-lang="en">
       How does the way safety information is presented to a driver — a
       real-time count of crossing pedestrians, or a UWB-based pedestrian
       tag — change braking behavior, cognitive load, and the safety
       margins drivers leave under uncertainty? I design and analyze ADAS
       warning systems with the driver's perception in the loop.
+    </p>
+    <p data-lang="ko">
+      안전 정보가 운전자에게 어떻게 전달되는지 — 실시간 횡단 보행자 수, 또는
+      UWB 기반 보행자 태그 — 가 운전자의 제동 행동·인지 부하·불확실성
+      속에서 남기는 안전 마진을 어떻게 바꾸는가? 저는 운전자의 인지 과정을
+      포함한 ADAS 경고 시스템을 설계·분석합니다.
     </p>
 
     <div class="pub fig-lg fig-zoom">
@@ -163,8 +205,8 @@
       </div>
     </div>
 
-    <h3>Underground and rail safety</h3>
-    <p>
+    <h3><span data-lang="en">Underground and rail safety</span><span data-lang="ko">지하·철도 환경 안전</span></h3>
+    <p data-lang="en">
       Underground and rail environments place people under poor
       visibility, conflicting cues, and varying perceptual ability.
       Using VR, I study three settings: how visibility and permissibility
@@ -173,6 +215,14 @@
       <em>driver</em> behavior in road tunnels; and how age-related
       perceptual constraints reshape transport disadvantage in railway
       information systems.
+    </p>
+    <p data-lang="ko">
+      지하 공간과 철도 환경은 시야 제약, 상충되는 신호, 다양한 지각 능력을
+      요구합니다. VR을 활용해 세 가지 상황을 연구합니다: 지하철역 화재 시
+      가시성·허용성 신호가 보행자의 대피 경로 선택을 어떻게 형성하는지,
+      도로 터널 내 정보 디자인이 <em>운전자</em>의 행동에 어떻게 영향을
+      미치는지, 그리고 연령 관련 지각적 제약이 철도 정보 시스템에서
+      교통 약자를 어떻게 재정의하는지.
     </p>
 
     <div class="pub fig-lg fig-zoom">
@@ -222,6 +272,6 @@
 
 </div>
 
-<script src="assets/script.js?v=2"></script>
+<script src="assets/script.js?v=3"></script>
 </body>
 </html>

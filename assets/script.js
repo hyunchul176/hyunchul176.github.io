@@ -2,7 +2,50 @@
 // Hyunchul Park — site behavior
 // =========================================================
 
+// Run dark mode + lang init as early as possible to avoid flash
 (function () {
+  const html = document.documentElement;
+  // Dark mode
+  const savedTheme = localStorage.getItem("theme");
+  const sysDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+  if (savedTheme === "dark" || (!savedTheme && sysDark)) {
+    html.classList.add("dark");
+  }
+  // Language
+  const savedLang = localStorage.getItem("lang");
+  if (savedLang === "ko") html.setAttribute("lang", "ko");
+})();
+
+(function () {
+  // ---------- Theme toggle (dark mode) ----------
+  const themeBtn = document.getElementById("theme-toggle");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", () => {
+      const html = document.documentElement;
+      const isDark = html.classList.toggle("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  }
+
+  // ---------- Language toggle (EN/KO) ----------
+  const langBtn = document.getElementById("lang-toggle");
+  const updateLangBtn = () => {
+    if (!langBtn) return;
+    const cur = document.documentElement.getAttribute("lang") || "en";
+    langBtn.textContent = cur === "en" ? "한국어" : "EN";
+  };
+  if (langBtn) {
+    langBtn.addEventListener("click", () => {
+      const html = document.documentElement;
+      const cur = html.getAttribute("lang") || "en";
+      const next = cur === "en" ? "ko" : "en";
+      html.setAttribute("lang", next);
+      localStorage.setItem("lang", next);
+      updateLangBtn();
+    });
+    updateLangBtn();
+  }
+
   // ---------- Topnav active link ----------
   const path = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".topnav a").forEach((a) => {
