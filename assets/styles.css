@@ -283,7 +283,7 @@ main { padding-bottom: 60px; }
 }
 .carousel-stage {
   position: relative;
-  background: #f6f6f6;
+  background: #fff;
   border: 1px solid #e5e5e5;
   border-radius: 2px;
   overflow: hidden;
