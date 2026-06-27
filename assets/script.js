@@ -66,6 +66,35 @@
     });
   });
 
+  // ---------- News deep-link helpers (shared by preview + news page) ----------
+  function newsSlug(date, title) {
+    return (date + "-" + title)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
+  function newsItemData(li) {
+    const date = (li.querySelector(".news-date")?.textContent || "").trim();
+    let title = (li.querySelector(".news-text > strong:first-child")?.textContent || "").trim();
+    title = title.replace(/\.$/, "");
+    return { date, title, slug: newsSlug(date, title) };
+  }
+
+  // ---------- News page: give each entry a stable anchor id ----------
+  const newsItemsOnPage = document.querySelectorAll(".news-list--cols li");
+  if (newsItemsOnPage.length) {
+    newsItemsOnPage.forEach((li) => {
+      const { slug } = newsItemData(li);
+      if (slug && !li.id) li.id = slug;
+    });
+    // ids are assigned after parse, so the browser's initial anchor jump
+    // missed it — scroll to the target now if the URL carries a matching hash.
+    if (location.hash.length > 1) {
+      const el = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (el) el.scrollIntoView();
+    }
+  }
+
   // ---------- Recent news preview (auto-sync from news.html) ----------
   const newsTarget = document.getElementById("news-preview");
   if (newsTarget) {
@@ -77,16 +106,17 @@
         if (items.length === 0) throw new Error("empty");
         newsTarget.innerHTML = "";
         Array.from(items).slice(0, 6).forEach((li) => {
-          const date = (li.querySelector(".news-date")?.textContent || "").trim();
-          let title = (li.querySelector(".news-text > strong:first-child")?.textContent || "").trim();
-          title = title.replace(/\.$/, "");
+          const { date, title, slug } = newsItemData(li);
           const newLi = document.createElement("li");
           const dSpan = document.createElement("span");
           dSpan.className = "news-date";
           dSpan.textContent = date;
           const tSpan = document.createElement("span");
           tSpan.className = "news-text";
-          tSpan.textContent = title;
+          const a = document.createElement("a");
+          a.href = "news.html#" + slug;
+          a.textContent = title;
+          tSpan.appendChild(a);
           newLi.appendChild(dSpan);
           newLi.appendChild(tSpan);
           newsTarget.appendChild(newLi);
