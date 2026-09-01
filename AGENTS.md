@@ -91,7 +91,7 @@ before implementation rather than after mistakes.
   tag chips.
 - News carousel images live in `assets/news/<slug>-N.jpg`. The carousel
   is driven by `data-slug` + `data-count` attributes on a `<div class="carousel">`.
-- Publication thumbnails live in `assets/pubs/`. Missing thumbnails
+- Publication and concept figures live in `assets/figures/`. Missing files
   fall back to a label via `onerror` — keep that pattern.
 - When updating publications, preserve the corresponding-author marker
   (`<sup>*</sup>`) and the convention of bolding the site owner's name

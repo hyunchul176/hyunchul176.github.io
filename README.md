@@ -12,11 +12,20 @@ Migrated from Google Sites → GitHub Pages.
 Website/
 ├── index.html       # Home
 ├── research.html    # Research themes & publications
-├── cv.html          # CV (education, papers, talks, awards)
+├── projects.html    # Funded projects
+├── cv.html          # CV (education, papers, talks, grants, awards)
 ├── news.html        # News timeline
+├── 404.html         # Not-found page
+├── favicon.svg      # Site icon (+ apple-touch-icon.png)
+├── sitemap.xml      # Listed in robots.txt
+├── robots.txt
 ├── assets/
 │   ├── styles.css   # All styles (light + dark mode)
-│   └── script.js    # Mobile nav toggle + active link
+│   ├── script.js    # Theme toggle, news preview, carousels, copy-email
+│   ├── og-card.jpg  # 1200x630 social preview image
+│   ├── figures/     # Publication thumbnails + concept figures
+│   ├── news/        # News carousel photos (<slug>-N.jpg)
+│   └── projects/    # Funder logos
 ├── .nojekyll        # Tells GitHub Pages NOT to process via Jekyll
 └── README.md
 ```
@@ -76,33 +85,40 @@ pointing to `<your-username>.github.io`.
 ## Customizing
 
 ### Profile photo
-Replace the "HP" placeholder in `index.html` `.hero-photo`:
+Replace `assets/profile.jpg`. It is referenced from `index.html`:
 ```html
-<div class="hero-photo"><img src="assets/profile.jpg" alt="Hyunchul Park" /></div>
+<div class="profile-photo"><img src="assets/profile.jpg" alt="Hyunchul Park"></div>
 ```
+The social preview card (`assets/og-card.jpg`) is built from the same
+photo, so regenerate it when the photo changes.
 
 ### News images
-Drop photos into `assets/news/` using the filenames listed in
-[`assets/news/README.md`](assets/news/README.md). Each news entry already
-has a `<figure>` slot that **auto-hides** if its file is missing — so you
-can add images one at a time without breaking the layout.
+Drop photos into `assets/news/` named `<slug>-N.jpg`, then point the
+entry at them:
+```html
+<div class="carousel" data-slug="2026-09-nrf-grant" data-count="3"></div>
+```
+`data-count` must match the number of files on disk. An entry with no
+`<div class="carousel">` simply renders without images.
 
-To get the originals from your Google Sites:
-1. Open https://sites.google.com/view/hyunchul17/news
-2. Right-click each image → *Save image as...*
-3. Rename to match the expected filename, drop into `assets/news/`
+Recommended size: **1200 × 750 px** (16:10), JPG, < 300 KB each.
 
 ### CV PDF
-Drop `CV_Hyunchul_Park.pdf` into `assets/`, then uncomment the
-Download PDF button in `cv.html`.
+There is no PDF download button. `cv.html` is print-styled (the nav is
+hidden in print), so *Print → Save as PDF* produces a clean CV. To bring
+a real download button back, restore the `.cv-download` block — it is in
+git history.
 
 ### Colors
-Edit the CSS variables at the top of `assets/styles.css`
-(`--accent`, `--accent-soft`, `--bg`, etc.).
+All colors are literal hex values in `assets/styles.css`; there are no
+CSS custom properties. The accent is `#004EA2` (KAIST blue), used
+throughout light mode, with `#58a6ff` as its dark-mode counterpart.
 
 ### Add a publication
-Copy a `<li>` block in `cv.html` under the Publications list, or an
-`<article class="card">` block in `research.html`.
+Copy an `<li>` block in `cv.html` under the Publications list, or a
+`<div class="pub fig-lg">` block in `research.html` / `index.html`.
+Thumbnails go in `assets/figures/`; a missing file falls back to a
+"Figure coming" label via `onerror`, so nothing breaks.
 
 ## License
 

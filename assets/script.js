@@ -16,9 +16,11 @@
   // ---------- Theme toggle (dark mode) ----------
   const themeBtn = document.getElementById("theme-toggle");
   if (themeBtn) {
+    themeBtn.setAttribute("aria-pressed", String(document.documentElement.classList.contains("dark")));
     themeBtn.addEventListener("click", () => {
       const html = document.documentElement;
       const isDark = html.classList.toggle("dark");
+      themeBtn.setAttribute("aria-pressed", String(isDark));
       localStorage.setItem("theme", isDark ? "dark" : "light");
     });
   }
@@ -27,7 +29,7 @@
   const path = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".topnav a").forEach((a) => {
     const href = a.getAttribute("href");
-    if (href === path || (path === "" && href === "index.html")) {
+    if (href === path) {
       a.classList.add("active");
     }
   });
@@ -46,7 +48,9 @@
 
   // ---------- Email click-to-copy ----------
   document.querySelectorAll(".copy-email").forEach((el) => {
-    const email = el.dataset.email || el.textContent.trim();
+    const email = el.dataset.email ||
+      (el.getAttribute("href") || "").replace(/^mailto:/, "") ||
+      el.textContent.trim();
     el.title = "Click to copy";
     el.addEventListener("click", async (e) => {
       e.preventDefault();

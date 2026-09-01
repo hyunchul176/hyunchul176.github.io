@@ -5,7 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>News - Hyunchul Park</title>
   <meta name="description" content="News and updates from Hyunchul Park's research at KAIST." />
-  <link rel="stylesheet" href="assets/styles.css?v=6" />
+  <link rel="canonical" href="https://hyunchul176.github.io/news.html" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Hyunchul Park" />
+  <meta property="og:title" content="News - Hyunchul Park" />
+  <meta property="og:description" content="News and updates from Hyunchul Park's research at KAIST." />
+  <meta property="og:url" content="https://hyunchul176.github.io/news.html" />
+  <meta property="og:image" content="https://hyunchul176.github.io/assets/og-card.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="assets/styles.css?v=7" />
 </head>
 <body class="news-page">
 
@@ -19,7 +31,7 @@
       <a href="cv.html">CV</a>
       <a href="news.html">News</a>
       <span class="nav-controls">
-        <button id="theme-toggle" class="nav-btn" type="button" aria-label="Toggle dark mode">
+        <button id="theme-toggle" class="nav-btn" type="button" aria-label="Toggle dark mode" aria-pressed="false">
           <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
         </button>
@@ -28,7 +40,7 @@
   </nav>
 
   <main>
-    <h1 style="margin-top:28px;">News</h1>
+    <h1>News</h1>
 
     <section class="journey" aria-label="Academic journey">
       <div class="journey-item">
@@ -565,13 +577,14 @@
   </main>
 
   <footer class="site-footer">
-    © <span id="year"></span> Hyunchul Park ·
-    <span class="copy-email">hyunchul.park@kaist.ac.kr</span>
+    &copy; <span id="year"></span> Hyunchul Park &middot;
+    <a class="copy-email" href="mailto:hyunchul.park@kaist.ac.kr">hyunchul.park@kaist.ac.kr</a> &middot;
+    <a href="https://scholar.google.com/citations?user=NpwHgkEAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
     <div class="last-updated" id="last-updated"></div>
   </footer>
 
 </div>
 
-<script src="assets/script.js?v=6"></script>
+<script src="assets/script.js?v=7"></script>
 </body>
 </html>
