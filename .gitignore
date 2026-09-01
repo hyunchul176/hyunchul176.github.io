@@ -15,9 +15,6 @@ node_modules/
 # Source photo folders (raw, big). Processed copies live under assets/news/
 Images/
 
-# Reference files — do not publish
-Curriculum Vitae_Sujin Lee_*.pdf
-
 # bkit working state
 .bkit/
 
