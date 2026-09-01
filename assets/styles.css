@@ -119,7 +119,7 @@ em { color: #444; }
 
 /* ---------- Layout ---------- */
 .container {
-  max-width: 760px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 24px;
 }
@@ -855,9 +855,6 @@ a.interest-card.t-human:hover { border-left-color: #0f766e; background: #ecfdf6;
   border-radius: 3px;
 }
 .year-nav a:hover { background: #f0f4fa; color: #004EA2; text-decoration: none; }
-
-/* Slightly wider container on the news page to fit 2 columns */
-.news-page .container { max-width: 1000px; }
 
 /* News list in 2 columns (card-style cells) */
 .news-list--cols {
