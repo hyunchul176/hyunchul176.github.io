@@ -21,6 +21,5 @@ Curriculum Vitae_Sujin Lee_*.pdf
 # bkit working state
 .bkit/
 
-# Local working files (keep cv-source.html if you want; remove if private)
-# cv-source.html
-# *.docx
+# Local working files — kept out of the published site
+*.docx
