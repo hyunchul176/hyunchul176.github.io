@@ -92,12 +92,17 @@
     <h2 id="humanoid-v2x">V2X-aware humanoid drivers</h2>
 
     <p>
-      I am training humanoid robots to drive vehicles using world-model–
-      based learning and V2X information feeds. Rather than treating an
-      autonomous vehicle as a black box on the road, the motivating idea
-      is to place a humanoid agent in the driver's seat that can perceive,
-      anticipate, and signal like a human driver, and then study how
-      embodied driving changes the behavior of surrounding road users.
+      I am training humanoid robots to drive ordinary vehicles through
+      world-model–based reinforcement learning. Instead of making the
+      vehicle intelligent, as conventional autonomous driving does, this
+      line of work leaves the vehicle as it is and replaces the driver: the
+      robot learns a world model that captures its own joint control and the
+      vehicle's response together, and acquires driving skills by rehearsing
+      inside that model before ever touching a real car. The learned policy
+      is then transferred to a physical humanoid and validated on a real
+      vehicle in a V2X testbed, where the robot itself receives and acts on
+      cooperative messages from the infrastructure, the way a human driver
+      would follow guidance rather than a controller consuming a signal.
     </p>
     <figure class="theme-fig">
       <img src="assets/figures/humanoid-v2x.png" alt="" onerror="this.outerHTML='&lt;div class=&quot;fig-placeholder&quot;&gt;Concept figure coming soon&lt;/div&gt;'">

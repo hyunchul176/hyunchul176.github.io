@@ -37,26 +37,34 @@
         <img src="assets/projects/nrf-logo.png" alt="NRF" onerror="this.parentElement.innerHTML='NRF'">
       </div>
       <div class="project-card-body">
-        <h3>World-Model-Based Driving Skill Learning for Humanoid Robots and Real-Vehicle Validation on a V2X Testbed</h3>
+        <h3>World-Model-Based Driving Skill Learning for Humanoid Robots and Real-Vehicle Validation in a V2X Testbed</h3>
         <p class="project-meta">
           <span class="project-badge personal">Personal</span>
           NRF &middot; Sep 2026 &ndash; Aug 2028
         </p>
         <p>
-          A personal NRF-funded project, which I lead as principal
-          investigator, on teaching a humanoid robot to drive a conventional
-          vehicle. Rather than mapping sensor input directly to control
-          commands, the robot learns a world model of the vehicle and its
-          surroundings, and acquires driving skills by imagining the
-          consequences of its own actions within that model. The learned
-          skills are then transferred to a real vehicle and validated on a
-          V2X testbed, where infrastructure messages let the robot anticipate
-          conditions beyond its own line of sight.
+          A personal NRF-funded project that I lead as principal
+          investigator. Autonomous driving has advanced by making the vehicle
+          itself intelligent; this project takes the opposite route and
+          replaces the driver, so that an ordinary car with no autonomous
+          hardware can still be driven autonomously by a humanoid robot
+          operating its steering wheel and pedals. The first phase couples a
+          robot simulator with a driving simulator, learns a world model that
+          represents the robot's joint control and the vehicle's response
+          together, and derives a driving policy through reinforcement
+          learning inside that model, widening the task from straight roads
+          to curves and then intersections. The second phase transfers the
+          policy to a real Unitree G1 humanoid, checks the sim-to-real gap
+          through hardware-in-the-loop experiments, and runs the robot in a
+          real vehicle at the KAIST Munji campus V2X testbed, where
+          cooperative messages such as recommended intersection speeds are
+          received and executed by the humanoid driver rather than by the
+          vehicle controller.
         </p>
         <div class="project-tags">
           <span class="project-tag">World Model</span>
-          <span class="project-tag">Humanoid Robot</span>
-          <span class="project-tag">Skill Learning</span>
+          <span class="project-tag">Humanoid Driving</span>
+          <span class="project-tag">Reinforcement Learning</span>
           <span class="project-tag">V2X</span>
         </div>
       </div>
