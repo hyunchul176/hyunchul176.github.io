@@ -20,10 +20,11 @@ Website/
 ├── sitemap.xml      # Listed in robots.txt
 ├── robots.txt
 ├── assets/
-│   ├── styles.css   # All styles (light + dark mode)
-│   ├── script.js    # Theme toggle, news preview, carousels, copy-email
+│   ├── styles.css   # All styles (light only; no dark mode)
+│   ├── script.js    # Research tabs, looping clips, news preview, carousels, copy-email
 │   ├── og-card.jpg  # 1200x630 social preview image
 │   ├── figures/     # Publication thumbnails + concept figures
+│   ├── clips/       # Silent looping MP4 clips + posters (research page)
 │   ├── news/        # News carousel photos (<slug>-N.jpg)
 │   └── projects/    # Funder logos
 ├── .nojekyll        # Tells GitHub Pages NOT to process via Jekyll
@@ -111,8 +112,8 @@ git history.
 
 ### Colors
 All colors are literal hex values in `assets/styles.css`; there are no
-CSS custom properties. The accent is `#004EA2` (KAIST blue), used
-throughout light mode, with `#58a6ff` as its dark-mode counterpart.
+CSS custom properties. The accent is `#004EA2` (KAIST blue). The site has
+no dark mode (removed on purpose).
 
 ### Add a publication
 Copy an `<li>` block in `cv.html` under the Publications list, or a

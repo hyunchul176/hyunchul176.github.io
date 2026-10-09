@@ -4,20 +4,20 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Research - Hyunchul Park</title>
-  <meta name="description" content="Research topics: RL-based adversarial agents for AV safety, humanoid drivers with world models and V2X, and human factors in traffic safety." />
+  <meta name="description" content="Research topics: RL-based adversarial agents for AV safety, humanoid robot drivers and V2X, and human factors in traffic safety." />
   <link rel="canonical" href="https://hyunchul176.github.io/research.html" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Hyunchul Park" />
   <meta property="og:title" content="Research - Hyunchul Park" />
-  <meta property="og:description" content="Research topics: RL-based adversarial agents for AV safety, humanoid drivers with world models and V2X, and human factors in traffic safety." />
+  <meta property="og:description" content="Research topics: RL-based adversarial agents for AV safety, humanoid robot drivers and V2X, and human factors in traffic safety." />
   <meta property="og:url" content="https://hyunchul176.github.io/research.html" />
   <meta property="og:image" content="https://hyunchul176.github.io/assets/og-card.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="stylesheet" href="assets/styles.css?v=8" />
+  <link rel="stylesheet" href="assets/styles.css?v=10" />
 </head>
 <body>
 
@@ -30,12 +30,6 @@
       <a href="projects.html">Projects</a>
       <a href="cv.html">CV</a>
       <a href="news.html">News</a>
-      <span class="nav-controls">
-        <button id="theme-toggle" class="nav-btn" type="button" aria-label="Toggle dark mode" aria-pressed="false">
-          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
-        </button>
-      </span>
     </div>
   </nav>
 
@@ -45,58 +39,52 @@
       My research sits at the intersection of traffic safety, human
       factors, and autonomous systems. It covers three topics:
     </p>
-    <div class="interest-grid">
-      <a class="interest-card t-av" href="#av-evaluation">
-        <h3>Autonomous vehicle safety evaluation</h3>
-        <p>Simulation-based stress testing, including RL-trained adversarial agents.</p>
-      </a>
-      <a class="interest-card t-humanoid" href="#humanoid-v2x">
-        <h3>V2X-aware humanoid drivers</h3>
-        <p>Humanoid robots that drive using V2X to participate as new traffic agents.</p>
-      </a>
-      <a class="interest-card t-human" href="#human-factors">
-        <h3>Human-centric traffic safety research</h3>
-        <p>VR experiments on how drivers and pedestrians decide in safety-critical settings.</p>
-      </a>
-    </div>
+    <nav class="topic-tabs" aria-label="Research topics">
+      <a class="topic-tab t-av" href="#av-evaluation">AV safety evaluation</a>
+      <a class="topic-tab t-humanoid" href="#humanoid-v2x">Humanoid drivers</a>
+      <a class="topic-tab t-human" href="#human-factors">Human-centric safety</a>
+    </nav>
 
     <section class="topic t-av">
     <h2 id="av-evaluation">Autonomous vehicle safety evaluation</h2>
 
     <p>
-      Most pedestrian and vehicle models used in AV simulation are
-      conservative and rule-following. I develop RL-trained adversarial
-      agents whose behavior is constrained to remain
-      <em>behaviorally realistic</em> while still stressing AV decision
-      logic, yielding sharper, more informative safety evaluation than
-      either purely random or purely worst-case scenarios.
+      Adversarial agents trained with reinforcement learning find
+      failures of automated vehicles quickly, but many of the crashes
+      they cause are ones that no driver could have avoided. I develop
+      adversarial agents for testing automated vehicles that create
+      difficult but fair traffic situations: every crash they provoke is
+      one that a careful and competent human driver would have avoided,
+      so each failure points to a weakness of the vehicle rather than to
+      an unavoidable attack.
     </p>
-    <figure class="theme-fig">
-      <img src="assets/figures/av-evaluation.png" width="800" height="400" loading="lazy" decoding="async" alt="" onerror="this.outerHTML='&lt;div class=&quot;fig-placeholder&quot;&gt;Concept figure coming soon&lt;/div&gt;'">
-      <figcaption>Conceptual framework for behaviorally realistic AV safety evaluation.</figcaption>
-    </figure>
 
-    <div class="pub fig-lg">
-      <div class="pub-fig">
-        <img src="assets/figures/aggressive-av.jpg" width="400" height="331" loading="lazy" decoding="async" alt="" onerror="this.parentElement.innerHTML='Figure<br>coming'">
-      </div>
+    <div class="pub no-fig">
       <div class="pub-body">
-        <p class="pub-title">Aggressiveness-Calibrated Adversarial Scenario Generation for Highway Autonomous Vehicle Safety Evaluation</p>
+        <p class="pub-title">Fair Adversarial Testing of Automated Vehicles in Highway Cut-ins: Reference-Shielded Attacks and a Capability-Controlled Evaluation</p>
         <p class="pub-authors"><span class="me">Park, H.</span>, Oh, T., Liu, Y., &amp; Kim, I.<sup>*</sup></p>
         <p class="pub-venue">Accident Analysis &amp; Prevention, 2026. (Under review.)</p>
+        <p class="pub-desc">
+          A reinforcement-learning attacker cuts in front of an automated
+          vehicle on a highway, but only with attacks that a careful and
+          competent human driver, modeled after UN Regulation No.&nbsp;157,
+          could still avoid. It attacks through a shield that replays this
+          reference driver before every action, and a follow-up search
+          tries only attacks that the reference driver avoids with a
+          margin. Each attack is replayed against that
+          reference driver, so a crash counts as a failure of the system
+          under test only when the careful driver avoids the same attack;
+          crashes the careful driver cannot avoid are attributed to the
+          attacker. The attacker starts from cut-ins in the highD drone
+          dataset, and its cut-in motion is checked against real highD
+          cut-ins.
+        </p>
       </div>
     </div>
-
-    <div class="pub fig-lg">
-      <div class="pub-fig">
-        <img src="assets/figures/sut-irt.jpg" loading="lazy" decoding="async" alt="" onerror="this.parentElement.innerHTML='Figure<br>coming'">
-      </div>
-      <div class="pub-body">
-        <p class="pub-title">Beyond Collision Rate: SUT-Invariant Adversarial Evaluation of Autonomous Driving via Item Response Theory</p>
-        <p class="pub-authors"><span class="me">Park, H.</span>, &amp; Kim, I.<sup>*</sup></p>
-        <p class="pub-venue">In preparation, 2026.</p>
-      </div>
-    </div>
+    <figure class="theme-fig clip">
+      <a href="assets/figures/acarl-trajectory.png"><img src="assets/figures/acarl-trajectory.png" width="1800" height="767" loading="lazy" decoding="async" alt="Top view of one highway cut-in in CARLA, with red boxes marking the adversary's earlier positions at one-second intervals"></a>
+      <figcaption>One highway cut-in seen from above in the CARLA simulator, with red boxes marking the adversary's earlier positions at one-second intervals. An attacker that only seeks collisions (top) makes both the system under test and the UN&nbsp;R157 careful-driver model crash, whereas our fair adversary (bottom) makes only the system under test crash, because the careful driver avoids the same attack.</figcaption>
+    </figure>
 
     </section>
 
@@ -104,22 +92,182 @@
     <h2 id="humanoid-v2x">V2X-aware humanoid drivers</h2>
 
     <p>
-      I am training humanoid robots to drive ordinary vehicles through
-      world-model–based reinforcement learning. Instead of making the
-      vehicle intelligent, as conventional autonomous driving does, this
-      line of work leaves the vehicle as it is and replaces the driver: the
-      robot learns a world model that captures its own joint control and the
-      vehicle's response together, and acquires driving skills by rehearsing
-      inside that model before ever touching a real car. The learned policy
-      is then transferred to a physical humanoid and validated on a real
-      vehicle in a V2X testbed, where the robot itself receives and acts on
-      cooperative messages from the infrastructure, the way a human driver
-      would follow guidance rather than a controller consuming a signal.
+      My goal is a general-purpose humanoid robot that sits in the
+      driver's seat of an existing car and drives it with the car's own
+      steering wheel and pedals, at road speed and in real traffic,
+      without being wired into the car's electronic controls. Such a
+      robot would automate vehicles already on the road by replacing the
+      driver rather than the vehicle. A driving model built for
+      drive-by-wire cars is not enough for this: the robot steers with
+      its arms, brakes with its feet and sees through a camera on its
+      own head, and at speed the car's motion moves the driver. My
+      Ph.D. research closes this embodiment gap one piece at a time,
+      first in physics simulation of a seated Unitree&nbsp;G1 in a micro
+      electric vehicle, then on the physical robot and a real vehicle.
     </p>
-    <figure class="theme-fig">
-      <img src="assets/figures/humanoid-v2x.png" width="800" height="400" loading="lazy" decoding="async" alt="" onerror="this.outerHTML='&lt;div class=&quot;fig-placeholder&quot;&gt;Concept figure coming soon&lt;/div&gt;'">
-      <figcaption>Conceptual framework for embodied autonomous driving.</figcaption>
+
+    <nav class="journey roadmap" aria-label="Steps toward a humanoid driver">
+      <a class="journey-item" href="#step-1">
+        <div class="journey-dot"></div>
+        <div class="journey-date">Step 1</div>
+        <div class="journey-label">Body</div>
+      </a>
+      <a class="journey-item" href="#step-2">
+        <div class="journey-dot"></div>
+        <div class="journey-date">Step 2</div>
+        <div class="journey-label">Eyes</div>
+      </a>
+      <a class="journey-item" href="#step-3">
+        <div class="journey-dot"></div>
+        <div class="journey-date">Step 3</div>
+        <div class="journey-label">Brain</div>
+      </a>
+      <a class="journey-item" href="#step-4">
+        <div class="journey-dot"></div>
+        <div class="journey-date">Step 4</div>
+        <div class="journey-label">Road</div>
+      </a>
+      <a class="journey-item planned" href="#step-5">
+        <div class="journey-dot"></div>
+        <div class="journey-date">Step 5</div>
+        <div class="journey-label">Real robot</div>
+      </a>
+      <a class="journey-item planned" href="#step-6">
+        <div class="journey-dot"></div>
+        <div class="journey-date">Step 6</div>
+        <div class="journey-label">Real car</div>
+      </a>
+      <div class="journey-item goal">
+        <div class="journey-dot"></div>
+        <div class="journey-date">Goal</div>
+        <div class="journey-label">Humanoid driver on real roads</div>
+      </div>
+    </nav>
+    <p class="note">
+      Steps 1&ndash;4 are in simulation (filled dots); steps 5&ndash;6
+      are planned for the physical robot (open dots).
+    </p>
+
+    <h3 id="step-1">Step 1. Body: how the car moves the driver</h3>
+    <div class="pub no-fig">
+      <div class="pub-body">
+        <p class="pub-title">When the Car Moves the Driver: Body Loops and the Speed Limit of a Simulated Humanoid Driver</p>
+        <p class="pub-authors"><span class="me">Park, H.</span>, &amp; Kim, I.<sup>*</sup></p>
+        <p class="pub-venue">In preparation, 2026.</p>
+        <p class="pub-desc">
+          At road speed, the car's lateral acceleration closes two loops
+          through the robot's body: the inertial load leaks into the
+          steering wheel (biodynamic feedthrough), and the tires'
+          aligning torque turns the wheel against the robot's compliant
+          arms. Three responses of the seated robot, all measurable
+          outside the vehicle, describe these loops. They account for
+          the speed the robot loses against a drive-by-wire car and
+          predict its speed limit before it drives.
+        </p>
+      </div>
+    </div>
+    <figure class="theme-fig clip">
+      <video class="loop-clip" src="assets/clips/paper-a-dlc.mp4" poster="assets/clips/paper-a-dlc.jpg" width="1200" height="706" muted loop playsinline preload="none" aria-label="Two simulated humanoid drivers doing a double lane change at 55 km/h; the top one leaves the lane corridors, the bottom one stays inside"></video>
+      <figcaption>A simulated G1 drives a double lane change at 55&nbsp;km/h (ISO&nbsp;3888-1 dimensions). With a driver tuned on the robot's steering-command response alone (top), the body loops make the car oscillate and leave the lane corridors; the driver tuned on all three identified responses (bottom) keeps it inside.</figcaption>
     </figure>
+
+    <h3 id="step-2">Step 2. Eyes: a camera on a swaying head</h3>
+    <div class="pub no-fig">
+      <div class="pub-body">
+        <p class="pub-title">Seeing from a Swaying Body: Designing Head-Camera Compensation for Humanoid Robot Drivers from Off-Vehicle Tests</p>
+        <p class="pub-authors"><span class="me">Park, H.</span>, &amp; Kim, I.<sup>*</sup></p>
+        <p class="pub-venue">In preparation, 2026.</p>
+        <p class="pub-desc">
+          The robot sees the road through a camera on its own body. The
+          car's motion and the robot's own steering sway its torso, so
+          the camera moves and closes a loop through perception that a
+          windshield camera does not have. The paper identifies this
+          camera motion off the vehicle, derives what a compensation must
+          achieve, including the moment its pose estimate must refer to,
+          and predicts the closed-loop speed limit before the robot
+          drives.
+        </p>
+      </div>
+    </div>
+    <figure class="theme-fig clip">
+      <video class="loop-clip" src="assets/clips/paper-e.mp4" poster="assets/clips/paper-e.jpg" width="1200" height="800" muted loop playsinline preload="none" aria-label="Simulated humanoid robot driving a double lane change, with its head-camera view and a windshield-camera view side by side"></video>
+      <figcaption>A simulated G1 drives a double lane change at 45&nbsp;km/h with a windshield camera fixed to the vehicle. The camera on its head turns with the torso, because the G1 has no neck, and rolls and shifts relative to the car with every turn (recorded Isaac Lab run, re-rendered in PyBullet, 0.6&times; speed).</figcaption>
+    </figure>
+
+    <h3 id="step-3">Step 3. Brain: what a driving model must know about the body</h3>
+    <div class="pub no-fig">
+      <div class="pub-body">
+        <p class="pub-title">What an End-to-End Driving Brain Must Know About a Humanoid Body: Closed-Loop Evaluation with an Identified Robot Driver</p>
+        <p class="pub-authors"><span class="me">Park, H.</span>, &amp; Kim, I.<sup>*</sup></p>
+        <p class="pub-venue">In preparation, 2026.</p>
+        <p class="pub-desc">
+          Open end-to-end driving models are trained and benchmarked on
+          drive-by-wire vehicles, whose steering follows a command at
+          once. This paper places an identified humanoid body between two
+          open driving models and the vehicle of a closed-loop CARLA
+          benchmark, and asks what the driving model must know about the
+          body, such as its steering-rate limit and how two hands turn a
+          wheel through large angles.
+        </p>
+      </div>
+    </div>
+
+    <h3 id="step-4">Step 4. Road: what the intersection must tell the robot</h3>
+    <div class="pub no-fig">
+      <div class="pub-body">
+        <p class="pub-title">Roadside Information, Yellow Intervals and Crossing Capacity for Humanoid Robot Drivers: A Matched-Safety Simulation at an Occluded Intersection</p>
+        <p class="pub-authors"><span class="me">Park, H.</span>, &amp; Kim, I.<sup>*</sup></p>
+        <p class="pub-venue">In preparation, 2026.</p>
+        <p class="pub-desc">
+          At an occluded intersection modeled on our C-V2X testbed,
+          planners with camera-only or camera-plus-V2X information drive
+          through simulated humanoid bodies, all tuned to the same safety
+          limits. The paper asks which roadside information such drivers
+          need, how much of their body the planner must know (for
+          example, a slow one-foot move from accelerator to brake), and
+          what this means for yellow intervals and crossing capacity.
+        </p>
+      </div>
+    </div>
+    <figure class="theme-fig clip">
+      <video class="loop-clip" src="assets/clips/paper-c.mp4" poster="assets/clips/paper-c.jpg" width="1200" height="680" muted loop playsinline preload="none" aria-label="Top view of two simulated runs past a pedestrian hidden behind a parked van, with camera-only and camera-plus-V2X planners"></video>
+      <figcaption>One simulated run in which a pedestrian steps out from behind a parked van, with the G1 robot at the wheel. Tuned to the same safety limits, the camera-only planner slows to near walking pace for a pedestrian who might be hidden, while the planner that also receives the roadside sensors' object list over V2X slows only briefly and crosses sooner.</figcaption>
+    </figure>
+
+    <h3 id="step-5">Step 5. Real robot: predicting driving limits from bench tests</h3>
+    <div class="pub no-fig">
+      <div class="pub-body">
+        <p class="pub-title">Bench-to-Road Prediction for a Physical Humanoid Driver (working title)</p>
+        <p class="pub-authors"><span class="me">Park, H.</span>, &amp; Kim, I.<sup>*</sup></p>
+        <p class="pub-venue">Planned, 2027.</p>
+        <p class="pub-desc">
+          Measures the body responses of a physical Unitree&nbsp;G1 on a
+          bench and on a six-axis motion platform with a driver's-seat
+          mock-up, and tests whether these measurements predict its
+          driving limits, as they do in simulation. It also measures the
+          pedal control and accelerator-to-brake transitions that the
+          later steps rely on.
+        </p>
+      </div>
+    </div>
+
+    <h3 id="step-6">Step 6. Real car: a closed track and a V2X intersection</h3>
+    <div class="pub no-fig">
+      <div class="pub-body">
+        <p class="pub-title">A Humanoid Robot Driving a Real Micro Electric Vehicle on a Closed Track and at a V2X Intersection (working title)</p>
+        <p class="pub-authors"><span class="me">Park, H.</span>, &amp; Kim, I.<sup>*</sup></p>
+        <p class="pub-venue">Planned, 2028.</p>
+        <p class="pub-desc">
+          The physical G1 drives a micro electric vehicle with its own
+          steering wheel and pedals, using removable adapters and a
+          safety driver with an auxiliary brake but no connection to the
+          vehicle's electronic controls. It drives first on a closed
+          track, at speeds raised step by step below the limits predicted
+          in step 5, and then at our V2X testbed intersection, where it
+          receives traffic information from the infrastructure.
+        </p>
+      </div>
+    </div>
 
     </section>
 
@@ -252,6 +400,6 @@
 
 </div>
 
-<script src="assets/script.js?v=8"></script>
+<script src="assets/script.js?v=10"></script>
 </body>
 </html>

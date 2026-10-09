@@ -2,29 +2,7 @@
 // Hyunchul Park — site behavior
 // =========================================================
 
-// Run dark mode init as early as possible to avoid flash
 (function () {
-  const html = document.documentElement;
-  const savedTheme = localStorage.getItem("theme");
-  const sysDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
-  if (savedTheme === "dark" || (!savedTheme && sysDark)) {
-    html.classList.add("dark");
-  }
-})();
-
-(function () {
-  // ---------- Theme toggle (dark mode) ----------
-  const themeBtn = document.getElementById("theme-toggle");
-  if (themeBtn) {
-    themeBtn.setAttribute("aria-pressed", String(document.documentElement.classList.contains("dark")));
-    themeBtn.addEventListener("click", () => {
-      const html = document.documentElement;
-      const isDark = html.classList.toggle("dark");
-      themeBtn.setAttribute("aria-pressed", String(isDark));
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-  }
-
   // ---------- Topnav active link ----------
   const path = location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".topnav a").forEach((a) => {
@@ -130,6 +108,59 @@
         newsTarget.innerHTML =
           '<li class="muted">See the <a href="news.html">News page</a> for recent updates.</li>';
       });
+  }
+
+  // ---------- Research page: topic tabs switch between topic sections ----------
+  // A hash anywhere inside a topic (#humanoid-v2x, #step-3, ...) opens that topic.
+  const tabGrid = document.querySelector(".topic-tabs");
+  if (tabGrid) {
+    const tabs = Array.from(tabGrid.querySelectorAll("a.topic-tab"));
+    const intro = tabGrid.previousElementSibling;
+    const panels = tabs.map((a) => document.getElementById(a.hash.slice(1)).closest(".topic"));
+    const hashTarget = () => location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    const show = (panel) => {
+      panels.forEach((p, i) => {
+        p.classList.toggle("is-active", p === panel);
+        if (p === panel) tabs[i].setAttribute("aria-current", "true");
+        else tabs[i].removeAttribute("aria-current");
+      });
+    };
+    const showFromHash = () => {
+      const el = hashTarget();
+      show((el && el.closest(".topic")) || panels[0]);
+      if (el) el.scrollIntoView();
+    };
+    document.body.classList.add("tabs-ready");
+    showFromHash();
+    tabs.forEach((a, i) => {
+      a.addEventListener("click", (e) => {
+        e.preventDefault();
+        show(panels[i]);
+        history.replaceState(null, "", a.hash);
+        // The bar is sticky: if the reader had scrolled down, start the new topic from its top.
+        const barTop = intro.getBoundingClientRect().bottom + window.scrollY;
+        if (window.scrollY > barTop) window.scrollTo({ top: barTop, behavior: "instant" });
+      });
+    });
+    window.addEventListener("hashchange", showFromHash);
+  }
+
+  // ---------- Looping clips: play only while on screen ----------
+  // Users who ask for reduced motion get the poster and controls instead.
+  const clips = document.querySelectorAll("video.loop-clip");
+  const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (clips.length && reduceMotion) {
+    clips.forEach((v) => { v.controls = true; });
+  } else if (clips.length && "IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) e.target.play().catch(() => {});
+        else e.target.pause();
+      });
+    }, { threshold: 0.25 });
+    clips.forEach((v) => io.observe(v));
+  } else {
+    clips.forEach((v) => { v.play().catch(() => {}); });
   }
 
   // ---------- Carousels ----------
