@@ -464,21 +464,6 @@ a.interest-card:hover {
 a.interest-card:hover h3 { text-decoration: underline; }
 a.interest-card h3 { color: #004EA2; }
 
-/* ---- Per-topic colors (AV = blue, Humanoid = indigo, Human = teal) ---- */
-/* AV: KAIST blue */
-.interest-card.t-av { border-left-color: #004EA2; }
-.interest-card.t-av h3 { color: #004EA2; }
-a.interest-card.t-av:hover { border-left-color: #003478; background: #f4f8fc; }
-
-/* Humanoid: indigo */
-.interest-card.t-humanoid { border-left-color: #6b46c1; }
-.interest-card.t-humanoid h3 { color: #6b46c1; }
-a.interest-card.t-humanoid:hover { border-left-color: #553c9a; background: #f5f1fb; }
-
-/* Human factors: teal */
-.interest-card.t-human { border-left-color: #0d9488; }
-.interest-card.t-human h3 { color: #0d9488; }
-a.interest-card.t-human:hover { border-left-color: #0f766e; background: #ecfdf6; }
 
 /* ---------- Research page topic tabs ----------
    script.js adds .tabs-ready and shows one .topic at a time; without JS the
@@ -505,9 +490,7 @@ a.interest-card.t-human:hover { border-left-color: #0f766e; background: #ecfdf6;
   transition: color .15s, border-color .15s;
 }
 .topic-tab:hover { color: #111; border-bottom-color: #d8dee4; text-decoration: none; }
-.topic-tab[aria-current="true"].t-av { color: #004EA2; border-bottom-color: #004EA2; }
-.topic-tab[aria-current="true"].t-humanoid { color: #6b46c1; border-bottom-color: #6b46c1; }
-.topic-tab[aria-current="true"].t-human { color: #0d9488; border-bottom-color: #0d9488; }
+.topic-tab[aria-current="true"] { color: #004EA2; border-bottom-color: #004EA2; }
 .tabs-ready .topic { margin-top: 20px; }
 .tabs-ready .topic:not(.is-active) { display: none; }
 .topic [id] { scroll-margin-top: 64px; }
@@ -520,41 +503,14 @@ a.interest-card.t-human:hover { border-left-color: #0f766e; background: #ecfdf6;
   .tabs-ready .topic:not(.is-active) { display: block; }
 }
 
-/* ---------- Research topic wrapper (colored card per theme) ---------- */
-.topic {
-  margin: 32px 0;
-  padding: 22px 26px;
-  border-left: 4px solid #ccc;
-  border-radius: 0 6px 6px 0;
-  background: #fafbfd;
-}
+/* ---------- Research topic sections ---------- */
+.topic { margin: 32px 0; }
 .topic > h2 {
   margin-top: 0;
   border-bottom: none;
   padding-bottom: 0;
 }
 .topic > h3 { margin-top: 1.6em; }
-.topic.t-av {
-  border-left-color: #004EA2;
-  background: #f5f9fd;
-}
-.topic.t-av > h2 { color: #004EA2; }
-.topic.t-humanoid {
-  border-left-color: #6b46c1;
-  background: #f7f4fc;
-}
-.topic.t-humanoid > h2 { color: #6b46c1; }
-.topic.t-human {
-  border-left-color: #0d9488;
-  background: #f0faf8;
-}
-.topic.t-human > h2 { color: #0d9488; }
-
-/* Diagrams inside topic cards: lighten the box bg so it sits on the tint */
-
-@media (max-width: 600px) {
-  .topic { padding: 18px 18px; }
-}
 
 /* ---------- Academic journey (horizontal milestone timeline) ---------- */
 .journey {
@@ -574,7 +530,7 @@ a.interest-card.t-human:hover { border-left-color: #0f766e; background: #ecfdf6;
   position: absolute;
   left: 40px;
   right: 40px;
-  top: 36px;
+  top: 30px; /* centre of the 14px dots below the 24px top padding */
   height: 2px;
   background: #d4dbe6;
   z-index: 0;
@@ -614,21 +570,22 @@ a.interest-card.t-human:hover { border-left-color: #0f766e; background: #ecfdf6;
     padding: 18px;
   }
   .journey::before {
-    left: 28px; right: auto; top: 32px;
+    left: 38px; right: auto; top: 32px; /* x-centre of the dots (18px padding + 14px + 7px) */
     width: 2px; height: calc(100% - 50px);
   }
-  .journey-item { text-align: left; padding-left: 30px; }
+  .journey-item { text-align: left; padding-left: 38px; }
   .journey-dot { position: absolute; left: 14px; top: 2px; margin: 0; }
 }
 
 /* ---------- Humanoid roadmap (journey variant) and step entries ---------- */
 .roadmap { margin-bottom: 8px; }
 .roadmap a.journey-item { color: inherit; text-decoration: none; }
-.roadmap a.journey-item:hover .journey-label { color: #6b46c1; text-decoration: underline; }
-.roadmap .journey-dot { background: #6b46c1; box-shadow: 0 0 0 1px #6b46c1; }
-.roadmap .planned .journey-dot { background: #fafbfd; }
-.roadmap .goal .journey-dot { width: 18px; height: 18px; margin-top: -2px; background: #6b46c1; }
-.roadmap .goal .journey-label { color: #6b46c1; }
+.roadmap { background: #fff; }
+.roadmap .journey-dot { border-color: #fff; }
+.roadmap a.journey-item:hover .journey-label { color: #004EA2; text-decoration: underline; }
+.roadmap .planned .journey-dot { background: #fff; }
+.roadmap .goal .journey-dot { width: 18px; height: 18px; margin-top: -2px; }
+.roadmap .goal .journey-label { color: #004EA2; }
 
 .pub.no-fig { grid-template-columns: 1fr; }
 .pub-desc { color: #333; font-size: .95rem; margin: .45em 0 0; }
