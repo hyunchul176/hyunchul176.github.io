@@ -25,6 +25,7 @@ Website/
 │   ├── og-card.jpg  # 1200x630 social preview image
 │   ├── figures/     # Publication thumbnails + concept figures
 │   ├── clips/       # Silent looping MP4 clips + posters (research page)
+│   ├── cv/          # Downloadable CV: Hyunchul_Park_CV.pdf + its LaTeX source (cv.tex; build with tectonic)
 │   ├── news/        # News carousel photos (<slug>-N.jpg)
 │   └── projects/    # Funder logos
 ├── .nojekyll        # Tells GitHub Pages NOT to process via Jekyll

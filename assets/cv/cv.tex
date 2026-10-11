@@ -1,0 +1,152 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{fontspec}
+\setmainfont{texgyretermes}[Extension=.otf, UprightFont=*-regular, BoldFont=*-bold, ItalicFont=*-italic, BoldItalicFont=*-bolditalic]
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+\def\UrlBreaks{\do\/\do.\do-}
+\urlstyle{same}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage[normalem]{ulem}
+
+\definecolor{linkblue}{HTML}{0563C1}
+\newcommand{\weblink}[2]{\href{#1}{\color{linkblue}\uline{#2}}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\small\thepage\ \ / \pageref{LastPage}}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+% One spacing system, scaled from the reference CV (12pt body, 14.5pt leading,
+% ~5pt between list items, ~1 line before each section) to fit two pages.
+\newlength{\itemgap}\setlength{\itemgap}{5.5pt}
+\newlength{\blockgap}\setlength{\blockgap}{14pt}
+\AtBeginDocument{\fontsize{12pt}{14.5pt}\selectfont}
+\interlinepenalty=10000 % keep each entry on one page
+
+
+\titleformat{\section}{\fontsize{13.5pt}{16pt}\selectfont\bfseries}{}{0pt}{}[{\vspace{2pt}\titlerule[0.6pt]}]
+\titlespacing*{\section}{0pt}{20pt}{9pt}
+\newcommand{\subhead}[1]{\par\vspace{\blockgap}{\fontsize{13pt}{15.5pt}\selectfont\bfseries\itshape #1}\par\vspace{6pt}}
+\newcommand{\firstsubhead}[1]{\par{\fontsize{13pt}{15.5pt}\selectfont\bfseries\itshape #1}\par\vspace{6pt}}
+\setlist[enumerate]{labelindent=0pt, labelwidth=0.95em, labelsep=0.4em, leftmargin=!, align=left, itemsep=\itemgap, topsep=0pt, partopsep=0pt, parsep=0pt}
+
+% bold italic underlined own name, as in the reference layout
+\newcommand{\me}{\textbf{\textit{\uline{Park, H.}}}}
+% entry: bold title with right-aligned date, then indented detail lines
+\newcommand{\entry}[3]{{\leftskip=0.45em\textbf{#1}\hfill #2\par #3\par}\vspace{\blockgap}}
+\newcommand{\lastentry}[3]{{\leftskip=0.45em\textbf{#1}\hfill #2\par #3\par}}
+% project heading: bold title in a left column, period right-aligned on the first line
+\newcommand{\projtitle}[2]{\parbox[t]{\dimexpr\linewidth-6.2em}{\raggedright\textbf{#1}\strut}\hfill\parbox[t]{6em}{\raggedleft #2}\\}
+\newcommand{\award}[2]{\makebox[3.2em][l]{#1}\parbox[t]{\dimexpr\linewidth-3.2em}{\raggedright #2\strut}\par\vspace{2pt}}
+
+\hyphenation{Metaverse}
+\begin{document}
+
+\vspace*{12pt}{\fontsize{22pt}{26pt}\selectfont\bfseries Hyunchul Park}\par\vspace{12pt}
+Ph.D.\ Student\par
+Cho Chun Shik Graduate School of Mobility\\ Korea Advanced Institute of Science and Technology (KAIST)\par\vspace{12pt}
+\weblink{mailto:hyunchul.park@kaist.ac.kr}{hyunchul.park@kaist.ac.kr} \quad\textbf{|}\quad
+\weblink{https://scholar.google.com/citations?user=NpwHgkEAAAAJ}{Google Scholar} \quad\textbf{|}\quad
+\weblink{https://hyunchul176.github.io}{Website}
+
+\section*{Research Interests}
+Humanoid Robot Drivers, Human Factors and Human--Machine Interaction in Traffic Safety, Driving Simulator and VR Experiments, Safety Testing of Automated Vehicles, Reinforcement Learning, V2X
+
+\section*{Education}
+\entry{Ph.D.\ Student}{2025 -- \textit{Present}}{Cho Chun Shik Graduate School of Mobility, KAIST\\ Research: closing the embodiment gap for humanoid robot drivers\\ \textit{Advisor: Inhi Kim, Ph.D.}}
+\entry{M.S.}{2023 -- 2025}{Cho Chun Shik Graduate School of Mobility, KAIST\\ Research: driver human factors in driving-simulator and VR experiments\\ \textit{Advisor: Inhi Kim, Ph.D.}}
+\lastentry{B.S.\ in \textbf{Civil \& Traffic Engineering}}{2016 -- 2022}{Kongju National University}
+
+\section*{Publications}
+\firstsubhead{Articles in International Journals}
+\begin{enumerate}
+\item Baek, J., Kim, J., \me, \& Kim, I. (2026). How age-related constraints reshape transport disadvantage in dynamic railway information systems: Evidence from virtual aging simulation. \textit{Journal of Urban Mobility}, 10, 100292. \url{https://doi.org/10.1016/j.urbmob.2026.100292}
+\item \me, Oh, T., Lim, J., \& Kim, I. (2026). Micro mobility safety challenges: A study on drivers overtaking bicycles and e-scooters according to road conditions and prior riding experience. \textit{Transportation Research Part F: Traffic Psychology and Behaviour}, 117, 103482. \url{https://doi.org/10.1016/j.trf.2025.103482}
+\item Lim, J., \me, Oh, T., \& Kim, I. (2025). The impact of information delivery systems in tunnels depending on lighting intensity and speed limit. \textit{Tunnelling and Underground Space Technology}, 157, 106365. \url{https://doi.org/10.1016/j.tust.2025.106365}
+\item \me, Oh, T., \& Kim, I. (2024). Effects of driver's braking behavior by the real-time pedestrian scale warning system. \textit{Accident Analysis \& Prevention}, 205, 107685. \url{https://doi.org/10.1016/j.aap.2024.107685}
+\end{enumerate}
+
+\subhead{Articles in Domestic Journals (in Korean)}
+\begin{enumerate}
+\item \me, Oh, T., \& Kim, I. (2022). A study on validation of omnidirectional VR treadmill by comparison of spatial orientation skills. \textit{The Journal of The Korea Institute of Intelligent Transport Systems}, 21(5), 15--27.
+\end{enumerate}
+
+\subhead{Articles Submitted}
+\begin{enumerate}
+\item \me, Oh, T., Liu, Y., \& Kim, I. (2026). Fair adversarial testing of automated vehicles in highway cut-ins: Reference-shielded attacks and a capability-controlled evaluation. \textit{IEEE Transactions on Intelligent Vehicles (under review)}.
+\item \me, Oh, T., Kim, J., Kim, J., \& Kim, I. (2026). From passive visibility to active permissibility: A virtual reality study on overcoming track avoidance bias in subway station fires. \textit{Underground Space (under 1\textsuperscript{st} revision)}.
+\item Kim, J., Kim, M., Kim, J., \me, \& Kim, I. (2026). Risks of static obstacle placement in crowd evacuation: Density sensitivity and the isolation of beneficial zones. \textit{(under review)}.
+\end{enumerate}
+
+\subhead{Manuscripts in Preparation}
+\begin{enumerate}
+\item \me, \& Kim, I. When the car moves the driver: Body loops and the speed limit of a simulated humanoid driver.
+\item \me, \& Kim, I. Seeing from a swaying body: Designing head-camera compensation for humanoid robot drivers from off-vehicle tests.
+\item \me, \& Kim, I. What an end-to-end driving brain must know about a humanoid body: Closed-loop evaluation with an identified robot driver.
+\item \me, \& Kim, I. Roadside information, yellow intervals and crossing capacity for humanoid robot drivers: A matched-safety simulation at an occluded intersection.
+\item \me, Tamakloe, R., Kim, E. M., Lim, J., \& Kim, I. Human-centric evaluation of UWB-based V2P ADAS: How pedestrian tag adoption rates influence driver cognitive load and safety performance in school zones.
+\end{enumerate}
+
+\section*{Conferences}
+\firstsubhead{Articles in International Conference Proceedings}
+\begin{enumerate}
+\item \me, \& Kim, I. (2026, July). Severity-controllable adversarial testing of highway automated vehicles using naturalistic aggressive-moment statistics. In \textit{15th Asia-Pacific Conference on Transportation and the Environment (APTE)}, Jeju, Korea. Oral presentation.
+\item \me, Oh, T., Lim, J., \& Kim, I. (2025). Micromobility safety challenges: A study on drivers overtaking bicycles and e-scooters according to road conditions and cross-modal experience. In \textit{Transportation Research Board 104th Annual Meeting}, Washington, DC. Oral presentation; \textbf{TRB Outstanding Paper Award}.
+\item \me, Oh, T., Lim, J., \& Kim, I. (2024). Micro mobility safety challenges: A study on drivers overtaking bicycles and e-scooters in relation to road conditions and prior riding experience. In \textit{36th ICTCT Conference}, The Hague, Netherlands. Oral presentation.
+\item Lim, J., \me, Oh, T., \& Kim, I. (2024). The impact of information delivery systems in tunnels depending on lighting intensity and speed limit. In \textit{Transportation Research Board 103rd Annual Meeting}, Washington, DC. Poster.
+\item \me, Oh, T., \& Kim, I. (2023). Effects of driver's braking response by the real-time pedestrian scale warning system. In \textit{Transportation Research Board 102nd Annual Meeting}, Washington, DC. Poster.
+\item \me, Oh, T., \& Kim, I. (2022). Validation of spatial orientation skill using virtual reality treadmill. In \textit{ITS World Congress 2022}, Los Angeles, CA. Oral presentation.
+\end{enumerate}
+
+\section*{Research Grants and Projects}
+\firstsubhead{Current Projects}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+\item \projtitle{World-Model-Based Driving Skill Learning for Humanoid Robots and Real-Vehicle Validation in a V2X Testbed}{2026 -- 2028}
+\textit{National Research Foundation of Korea (NRF), Doctoral Student Research Encouragement Program}\\
+Role: Principal Investigator, Amount: KRW 50,000,000
+\item \projtitle{Development of Virtual Environment and Demonstration Technology for Automated Driving based on Metaverse}{2023 -- 2027}
+\textit{Ministry of Land, Infrastructure and Transport (MOLIT)}\\
+Role: Researcher (behaviorally realistic traffic agents for automated-driving tests)
+\end{enumerate}
+\subhead{Selected Completed Projects}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+\item \projtitle{Developing an Aggressive Pedestrian Model for Autonomous Vehicle Safety Testing}{2024 -- 2025}
+\textit{National Research Foundation of Korea (NRF), Graduate Student Research Encouragement Fund}\\
+Role: Principal Investigator, Amount: KRW 12,000,000
+\item \projtitle{ASEAN--Korea Transport Cooperation Roadmap (2026--2030)}{2024 -- 2025}
+\textit{Ministry of Land, Infrastructure and Transport (MOLIT), with the ASEAN Secretariat}\\
+Role: Planning lead; presented at the ASEAN Land Transport Working Group, Cambodia, Aug.\ 2025
+\end{enumerate}
+
+\section*{Awards and Honors}
+\award{2026}{National Excellence Scholarship (Science \& Engineering), \textit{Korea Student Aid Foundation}}
+\award{2025}{Outstanding Paper Award, \textit{Transportation Research Board 104th Annual Meeting}}
+\award{2025}{Young Investigator Award, \textit{IPESK}}
+\award{2024}{Graduate Student Outstanding Paper Award, \textit{KAIST}}
+\award{2024}{Young-Han Kim Global Leader Scholarship, \textit{KAIST} (25 students annually)}
+\award{2024}{Best Teaching Assistant Award, \textit{KAIST}}
+\award{2024}{President's Award (Distinguished Graduate), \textit{Korean Society of Transportation}}
+\award{2023}{Best Paper Award, \textit{The Korea Institute of Intelligent Transport Systems}}
+\award{2021}{Best Paper Award, \textit{The Korea Institute of Intelligent Transport Systems}}
+\award{2021}{Excellence Award, Marine Big Data Analysis Competition, \textit{UNIST}}
+\award{2020}{President's Award (Capstone Design), \textit{Kongju National University}}
+
+\section*{Talks}
+\begin{enumerate}
+\item ``Building an LLM-Powered Wiki for Researchers: Toward Automated Knowledge Curation in Research Workflows,'' AI Agent Seminar, Korea Transport Institute (KOTI), Jun.\ 2026.
+\end{enumerate}
+
+\section*{Teaching}
+\entry{Teaching Assistant}{2024}{Experiments in Future Mobility within the Metaverse, KAIST\\ Best Teaching Assistant Award}
+
+\vfill
+\hfill\textit{Last updated: October 2026}
+
+\end{document}
