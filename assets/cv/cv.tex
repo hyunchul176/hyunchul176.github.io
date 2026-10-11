@@ -13,7 +13,9 @@
 \usepackage{fancyhdr}
 \usepackage[normalem]{ulem}
 
-\definecolor{linkblue}{HTML}{0563C1}
+\definecolor{kaist}{HTML}{004EA2}   % KAIST blue, same as the website accent
+\definecolor{meta}{HTML}{555555}    % dates and other secondary text
+\colorlet{linkblue}{kaist}
 \newcommand{\weblink}[2]{\href{#1}{\color{linkblue}\uline{#2}}}
 
 \pagestyle{fancy}
@@ -31,7 +33,7 @@
 \interlinepenalty=10000 % keep each entry on one page
 
 
-\titleformat{\section}{\fontsize{13.5pt}{16pt}\selectfont\bfseries}{}{0pt}{}[{\vspace{2pt}\titlerule[0.6pt]}]
+\titleformat{\section}{\fontsize{13.5pt}{16pt}\selectfont\bfseries\color{kaist}}{}{0pt}{}[{\vspace{2pt}{\color{kaist}\titlerule[0.8pt]}}]
 \titlespacing*{\section}{0pt}{20pt}{9pt}
 \newcommand{\subhead}[1]{\par\vspace{\blockgap}{\fontsize{13pt}{15.5pt}\selectfont\bfseries\itshape #1}\par\vspace{6pt}}
 \newcommand{\firstsubhead}[1]{\par{\fontsize{13pt}{15.5pt}\selectfont\bfseries\itshape #1}\par\vspace{6pt}}
@@ -40,20 +42,20 @@
 % bold italic underlined own name, as in the reference layout
 \newcommand{\me}{\textbf{\textit{\uline{Park, H.}}}}
 % entry: bold title with right-aligned date, then indented detail lines
-\newcommand{\entry}[3]{{\leftskip=0.45em\textbf{#1}\hfill #2\par #3\par}\vspace{\blockgap}}
-\newcommand{\lastentry}[3]{{\leftskip=0.45em\textbf{#1}\hfill #2\par #3\par}}
+\newcommand{\entry}[3]{{\leftskip=0.45em\textbf{#1}\hfill{\color{meta}#2}\par #3\par}\vspace{\blockgap}}
+\newcommand{\lastentry}[3]{{\leftskip=0.45em\textbf{#1}\hfill{\color{meta}#2}\par #3\par}}
 % project heading: bold title in a left column, period right-aligned on the first line
-\newcommand{\projtitle}[2]{\parbox[t]{\dimexpr\linewidth-6.2em}{\raggedright\textbf{#1}\strut}\hfill\parbox[t]{6em}{\raggedleft #2}\\}
-\newcommand{\award}[2]{\makebox[3.2em][l]{#1}\parbox[t]{\dimexpr\linewidth-3.2em}{\raggedright #2\strut}\par\vspace{2pt}}
+\newcommand{\projtitle}[2]{\parbox[t]{\dimexpr\linewidth-6.2em}{\raggedright\textbf{#1}\strut}\hfill\parbox[t]{6em}{\raggedleft\leavevmode\color{meta}#2}\\}
+\newcommand{\award}[2]{\makebox[3.2em][l]{\color{kaist}#1}\parbox[t]{\dimexpr\linewidth-3.2em}{\raggedright #2\strut}\par\vspace{2pt}}
 
 \hyphenation{Metaverse}
 \begin{document}
 
 \vspace*{12pt}{\fontsize{22pt}{26pt}\selectfont\bfseries Hyunchul Park}\par\vspace{12pt}
-Ph.D.\ Student\par
-Cho Chun Shik Graduate School of Mobility\\ Korea Advanced Institute of Science and Technology (KAIST)\par\vspace{12pt}
-\weblink{mailto:hyunchul.park@kaist.ac.kr}{hyunchul.park@kaist.ac.kr} \quad\textbf{|}\quad
-\weblink{https://scholar.google.com/citations?user=NpwHgkEAAAAJ}{Google Scholar} \quad\textbf{|}\quad
+{\color{meta}Ph.D.\ Student\par
+Cho Chun Shik Graduate School of Mobility\\ Korea Advanced Institute of Science and Technology (KAIST)\par}\vspace{12pt}
+\weblink{mailto:hyunchul.park@kaist.ac.kr}{hyunchul.park@kaist.ac.kr} \quad{\color{meta}|}\quad
+\weblink{https://scholar.google.com/citations?user=NpwHgkEAAAAJ}{Google Scholar} \quad{\color{meta}|}\quad
 \weblink{https://hyunchul176.github.io}{Website}
 
 \section*{Research Interests}
@@ -111,6 +113,9 @@ Humanoid Robot Drivers, Human Factors and Human--Machine Interaction in Traffic 
 \item \projtitle{World-Model-Based Driving Skill Learning for Humanoid Robots and Real-Vehicle Validation in a V2X Testbed}{2026 -- 2028}
 \textit{National Research Foundation of Korea (NRF), Doctoral Student Research Encouragement Program}\\
 Role: Principal Investigator, Amount: KRW 50,000,000
+\item \projtitle{Development of Industry-Specific Physical AI Foundation Models}{2026 -- 2029}
+\textit{Institute of Information \& Communications Technology Planning \& Evaluation (IITP)}\\
+Role: Researcher (sim-to-real module for a logistics humanoid)
 \item \projtitle{Development of Virtual Environment and Demonstration Technology for Automated Driving based on Metaverse}{2023 -- 2027}
 \textit{Ministry of Land, Infrastructure and Transport (MOLIT)}\\
 Role: Researcher (behaviorally realistic traffic agents for automated-driving tests)
